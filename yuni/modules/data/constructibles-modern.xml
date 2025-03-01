@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <Types>
+        <Row Type="BUILDING_OBSERVATORY_MO_YUNI" Kind="KIND_CONSTRUCTIBLE"/>
+    </Types>
+    <Constructibles>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" Name="LOC_BUILDING_OBSERVATORY_MO_YUNI_NAME" Description="LOC_BUILDING_OBSERVATORY_DESCRIPTION" Tooltip="LOC_BUILDING_OBSERVATORY_TOOLTIP" ConstructibleClass="BUILDING" Cost="200" Population="1" Age="AGE_MODERN" RequiresUnlock="true"/>
+    </Constructibles>
+    <Buildings>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" Movable="false"/>
+    </Buildings>
+    <Constructible_ValidDistricts>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" DistrictType="DISTRICT_CITY_CENTER"/>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" DistrictType="DISTRICT_URBAN"/>
+    </Constructible_ValidDistricts>
+    <Constructible_YieldChanges>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" YieldType="YIELD_SCIENCE" YieldChange="4"/>
+    </Constructible_YieldChanges>
+    <Constructible_Maintenances>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" YieldType="YIELD_GOLD" Amount="3"/>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" YieldType="YIELD_HAPPINESS" Amount="3"/>
+    </Constructible_Maintenances>
+    <Constructible_Adjacencies>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" YieldChangeId="ResourceScience"/>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" YieldChangeId="WonderScience"/>
+    </Constructible_Adjacencies>
+    <Constructible_Plunders>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" PlunderType="PLUNDER_SCIENCE" Amount="80"/>
+    </Constructible_Plunders>
+    <Constructible_Advisories>
+        <Row ConstructibleType="BUILDING_OBSERVATORY_MO_YUNI" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
+    </Constructible_Advisories>
+</Database>

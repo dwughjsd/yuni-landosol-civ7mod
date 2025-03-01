@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_PLACHTA_THEORIST" RequirementSetId="REQSET_LEGEND_LEVEL_4_PLACHTA_THEORIST" Description=""/>
+	</UnlockRequirements>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_PLACHTA_THEORIST" Name="LOC_CARD_AT_EXP_LEGEND_PLACHTA_THEORIST_1_NAME" Description="LOC_CARD_AT_EXP_LEGEND_PLACHTA_THEORIST_1_DESCRIPTION" Icon="LEADER_CATHERINE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_PLACHTA_THEORIST" Name="LOC_CARD_AT_EXP_LEGEND_PLACHTA_THEORIST_2_NAME" Description="LOC_CARD_AT_EXP_LEGEND_PLACHTA_THEORIST_2_DESCRIPTION" Icon="LEADER_CATHERINE"/>
+	</UnlockRewards>
+</Database>

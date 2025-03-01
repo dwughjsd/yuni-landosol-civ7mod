@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+  <LocalizedText>
+    <Replace Tag="LOC_MODULE_YUNI_LANDOSOL_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>包含一位新领袖：优妮。</Text>
+    </Replace>
+    <Replace Tag="LOC_MODULE_YUNI_LANDOSOL_NAME" Language="zh_Hans_CN">
+      <Text>优妮</Text>
+    </Replace>
+  </LocalizedText>
+</Database>

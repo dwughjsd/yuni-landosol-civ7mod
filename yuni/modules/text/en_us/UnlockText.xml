@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_YUNI_DESCRIPTION">
+			<Text>Play as [B]Yuni[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_YUNI_MAYA_TOOLTIP">
+			<Text>[B]Maya[/B] strategically compliments [B]Yuni[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_YUNI_ROME_TOOLTIP">
+			<Text>[B]Yuni's[/B] name reads as Uni, an Etruscan goddess, who was from the same region as [B]Rome[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_YUNI_ABBASID_TOOLTIP">
+			<Text>[B]Abbasid[/B] strategically compliments [B]Yuni[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_YUNI_MEIJI_TOOLTIP">
+			<Text>[B]Yuni[/B] is a fictional character created by [B]Japanese[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_YUNI_RUSSIA_TOOLTIP">
+			<Text>[B]Russia[/B] strategically compliments [B]Yuni[/B].</Text>
+		</Row>
+	</EnglishText>
+</Database>

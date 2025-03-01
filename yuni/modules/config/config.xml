@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Leaders>
+		<Row LeaderType="LEADER_YUNI" LeaderName="LOC_LEADER_YUNI_NAME" LeaderDescription="LOC_LEADER_YUNI_DESCRIPTION" LeaderIcon="LEADER_YUNI"/>
+	</Leaders>
+	<LeaderItems>
+		<Row LeaderType="LEADER_YUNI" Type="TRAIT_LEADER_YUNI_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_LEADER_YUNI_ABILITY_NAME" Description="LOC_TRAIT_LEADER_YUNI_ABILITY_DESCRIPTION"/>
+	</LeaderItems>
+	<LeaderTags>
+		<Row LeaderType="LEADER_YUNI" TagType="TAG_TRAIT_SCIENTIFIC"/>
+		<Row LeaderType="LEADER_YUNI" TagType="TAG_TRAIT_CULTURAL"/>
+		<Row LeaderType="LEADER_YUNI" TagType="TAG_GENDER_FEMALE"/>
+		<Row LeaderType="LEADER_YUNI" TagType="TAG_ORIGIN_ASIA_EAST"/>
+	</LeaderTags>
+	<LeaderQuotes>
+		<Row LeaderType="LEADER_YUNI" Quote="LOC_MAIN_CHAR_SELECT_LEADER_YUNI_ANY"/>
+	</LeaderQuotes>
+	<LeaderCivilizationBias>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_MAYA" LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_YUNI_MAYA_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_ROME" LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_YUNI_ROME_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ABBASID" LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_YUNI_ABBASID_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_MEIJI" LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" Bias="4" ReasonType="LOC_UNLOCK_PLAY_AS_YUNI_MEIJI_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_RUSSIA" LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_YUNI_RUSSIA_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE"/>
+	</LeaderCivilizationBias>
+	<LeaderUnlocks>
+	</LeaderUnlocks>
+	<Mementos>
+		<Row Type="MEMENTO_YUNI_ROSETTA" Name="LOC_MEMENTO_YUNI_ROSETTA_NAME" Description="LOC_MEMENTO_YUNI_ROSETTA_DESCRIPTION" FunctionalDescription="LOC_MEMENTO_YUNI_ROSETTA_FUNCTIONAL_DESCRIPTION" UnlockTitle="LOC_MEMENTO_YUNI_ROSETTA_UNLOCK_TITLE"/>
+		<Row Type="MEMENTO_YUNI_YUNICOPTER" Name="LOC_MEMENTO_YUNI_YUNICOPTER_NAME" Description="LOC_MEMENTO_YUNI_YUNICOPTER_DESCRIPTION" FunctionalDescription="LOC_MEMENTO_YUNI_YUNICOPTER_FUNCTIONAL_DESCRIPTION" UnlockTitle="LOC_MEMENTO_YUNI_YUNICOPTER_UNLOCK_TITLE"/>
+		<Row Type="MEMENTO_YUNI_PEN_AXE_REPLICA" Name="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME" Description="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_DESCRIPTION" FunctionalDescription="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_FUNCTIONAL_DESCRIPTION" LeaderSpecific="LEGEND_PATH_NAPOLEON" UnlockTitle="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_UNLOCK_TITLE"/>
+	</Mementos>
+</Database>

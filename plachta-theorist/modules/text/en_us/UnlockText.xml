@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_PLACHTA_THEORIST_DESCRIPTION">
+			<Text>Play as [B]Plachta[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_PLACHTA_THEORIST_MAYA_TOOLTIP">
+			<Text>[B]Maya[/B] strategically compliments [B]Plachta[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_PLACHTA_THEORIST_MISSISSIPPIAN_TOOLTIP">
+			<Text>The [B]Mississippians[/B] strategically compliment [B]Plachta[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_PLACHTA_THEORIST_HAWAII_TOOLTIP">
+			<Text>[B]Hawaii[/B] strategically compliments [B]Plachta[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_PLACHTA_THEORIST_MEIJI_TOOLTIP">
+			<Text>[B]Meiji Japan[/B] strategically compliments [B]Plachta[/B].</Text>
+		</Row>
+		<Row Tag="LOC_UNLOCK_PLAY_AS_PLACHTA_THEORIST_PRUSSIA_TOOLTIP">
+			<Text>[B]Plachta's[/B] hometown is designed based on towns located in [B]Prussia[/B].</Text>
+		</Row>
+	</EnglishText>
+</Database>

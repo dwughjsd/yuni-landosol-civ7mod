@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Database>
+	<IconDefinitions>
+		<Row>
+			<ID>LEADER_PLACHTA_THEORIST</ID>
+			<Path>fs://game/core/lp_hex_catherine_128</Path>
+			<IconSize>128</IconSize>
+		</Row>
+		<Row>
+			<ID>LEADER_PLACHTA_THEORIST</ID>
+			<Path>fs://game/core/lp_hex_catherine_128_h</Path>
+			<Context>LEADER_HAPPY</Context>
+			<IconSize>128</IconSize>
+		</Row>
+		<Row>
+			<ID>LEADER_PLACHTA_THEORIST</ID>
+			<Path>fs://game/core/lp_hex_catherine_128_a</Path>
+			<Context>LEADER_ANGRY</Context>
+			<IconSize>128</IconSize>
+		</Row>
+		<Row>
+			<ID>LEADER_PLACHTA_THEORIST</ID>
+			<Path>fs://game/core/lp_hex_catherine_64</Path>
+			<IconSize>64</IconSize>
+		</Row>
+		<Row>
+			<ID>LEADER_PLACHTA_THEORIST</ID>
+			<Path>fs://game/core/lp_circ_catherine_256</Path>
+			<Context>CIRCLE_MASK</Context>
+			<IconSize>256</IconSize>
+		</Row>
+		<Row>
+			<ID>LEADER_PLACHTA_THEORIST</ID>
+			<Path>fs://game/core/lp_circ_catherine_128</Path>
+			<Context>CIRCLE_MASK</Context>
+			<IconSize>128</IconSize>
+		</Row>
+		<Row>
+			<ID>LEADER_PLACHTA_THEORIST</ID>
+			<Path>fs://game/core/lp_circ_catherine_64</Path>
+			<Context>CIRCLE_MASK</Context>
+			<IconSize>64</IconSize>
+		</Row>
+	</IconDefinitions>
+</Database>

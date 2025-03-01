@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+  <LocalizedText>
+    <Replace Tag="LOC_MODULE_ENDLESS_WINS_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>让你像在川大统领的光辉下，从一场胜利走向另一场胜利！</Text>
+    </Replace>
+    <Replace Tag="LOC_MODULE_ENDLESS_WINS_NAME" Language="zh_Hans_CN">
+      <Text>赢麻了</Text>
+    </Replace>
+    <Replace Tag="LOC_PROJECT_FAST_FORWARD_ERA_NAME" Language="zh_Hans_CN">
+      <Text>根本赢不麻！</Text>
+    </Replace>
+    <Replace Tag="LOC_PROJECT_FAST_FORWARD_ERA_SHORT_NAME" Language="zh_Hans_CN">
+      <Text>赢下本时代</Text>
+    </Replace>
+    <Replace Tag="LOC_PROJECT_FAST_FORWARD_ERA_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>完成本时代的所有时代目标。同时，一旦研究未来科技，本时代将立即结束。</Text>
+    </Replace>
+  </LocalizedText>
+</Database>

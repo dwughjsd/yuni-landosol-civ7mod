@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+  <LocalizedText>
+    <Replace Tag="LOC_MODULE_PLACHTA_THEORIST_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>包含一位新领袖：普拉芙妲。</Text>
+    </Replace>
+    <Replace Tag="LOC_MODULE_PLACHTA_THEORIST_NAME" Language="zh_Hans_CN">
+      <Text>普拉芙妲</Text>
+    </Replace>
+  </LocalizedText>
+</Database>

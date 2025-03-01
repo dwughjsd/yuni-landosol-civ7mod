@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <Types>
+        <Row Type="PROJECT_FAST_FORWARD_ERA_MO" Kind="KIND_PROJECT"/>
+    </Types>
+    <Projects>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" Name="LOC_PROJECT_FAST_FORWARD_ERA_NAME" ShortName="LOC_PROJECT_FAST_FORWARD_ERA_SHORT_NAME" Description="LOC_PROJECT_FAST_FORWARD_ERA_DESCRIPTION" Cost="1" CityOnly="true" RequiresUnlock="false" MaxPlayerInstances="1"/>
+    </Projects>
+    <ProjectCompletionModifiers>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="LEGACY_PATH_MODERN_MODIFIER1"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="LEGACY_PATH_MODERN_MODIFIER2"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="LEGACY_PATH_MODERN_MODIFIER3"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="LEGACY_PATH_MODERN_MODIFIER4"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="MOD_ENDLESS_WINS_FREE_TECHS_MODERN"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="MOD_ENDLESS_WINS_PURCHASE_RATE"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="MOD_ENDLESS_WINS_PROJECT_PRODUCTION"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="MOD_ENDLESS_WINS_WONDER_PRODUCTION"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="MOD_ENDLESS_WINS_BUILDING_PRODUCTION"/>
+        <Row ProjectType="PROJECT_FAST_FORWARD_ERA_MO" ModifierId="GOODY_GOLD_SMALL_MODIFIER"/>
+    </ProjectCompletionModifiers>
+</Database>

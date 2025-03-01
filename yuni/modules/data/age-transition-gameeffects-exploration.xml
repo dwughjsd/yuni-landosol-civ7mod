@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="CARD_AQ_YUNI_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REPLACE_CONSTRUCTIBLE" permanent="true" run-once="true">
+        <Argument name="Destroy">BUILDING_LIBRARY</Argument>
+        <Argument name="Create">BUILDING_LIBRARY_EX_YUNI</Argument>
+    </Modifier>
+</GameEffects>

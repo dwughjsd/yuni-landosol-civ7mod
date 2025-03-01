@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <EnglishText>
+        <!--Name: the text for the choice. Description: The reward that granted by the story. Storytitle: Flavor text title shown when the story happens (mission finished). Completion: Flavor text shown when the story happens. Imperative: The mission that make the story happens. If a story doesn't need a mission to be finished, it will only have Storytitle and Completion.-->
+        <!--Antiquity-->
+        <!--Leader Chain-->
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_INIT_STORYTITLE">
+            <Text>Academic Writing</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_INIT_COMPLETION">
+            <Text>Yuni immerses herself in a library, looking for a topic for her new research.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_NAME">
+            <Text>Study natural science.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_IMPERATIVE">
+            <Text>Have 3 Points in the Great Library Legacy Path.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_AQ1_INIT_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_COMPLETION">
+            <Text>After elaborate experiments and some paperwork, Yuni finishes her new theory and inspired academia to think on a brand new field.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_NAME">
+            <Text>Study folk customs.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_IMPERATIVE">
+            <Text>Become Suzerain over an Independent Power.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_AQ1_INIT_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_COMPLETION">
+            <Text>Yuni records unique customs of people nearby. These cultural traditions raised interest of her people.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_BREAK_NAME">
+            <Text>Go for a humorous novel first.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_BREAK_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_INIT_STORYTITLE">
+            <Text>Scholarship</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_INIT_COMPLETION">
+            <Text>A teacher suggests Yuni to provide financial rewards for excellent students.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_NAME">
+            <Text>Let them make some achievements first.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_IMPERATIVE">
+            <Text>Have 6 Points in the Great Library Legacy Path.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_AQ1_A_INIT_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_COMPLETION">
+            <Text>Among the best students, a "team of friendship" who excels at study and sociality finally wins the reward after an unreasonable appraisal.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_BREAK_NAME">
+            <Text>It's not applicable for me after all.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_BREAK_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_INIT_STORYTITLE">
+            <Text>Artistic Rendering</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_INIT_COMPLETION">
+            <Text>Artists love the vocabulary Yuni uses to describe, while engineers can barely understand her.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_NAME">
+            <Text>Ask them to learn what romance is.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_IMPERATIVE">
+            <Text>Build a Wonder.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_AQ1_B_INIT_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_COMPLETION">
+            <Text>People starts to think if even Yuni's ideas are actually too conservative when they finished an unprecedented great building.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_BREAK_NAME">
+            <Text>Repeat with plain and accurate words.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_BREAK_DESCRIPTION">
+            <Text>{1_reward} in all Settlements.</Text>
+        </Row>
+        <!--Random Events-->
+        <!--Exploration-->
+        <!--Leader Chain-->
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_INIT_STORYTITLE">
+            <Text>In Search of Truths</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_INIT_COMPLETION">
+            <Text>Some truths are untouchable by even the best minds, but the process of reaching truths itself is what Yuni wants.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_CHOICE_A_NAME">
+            <Text>Research falsehood of this world.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_CHOICE_A_DESCRIPTION">
+            <Text>Story continues.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_CHOICE_B_NAME">
+            <Text>Research developmental psychology.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_CHOICE_B_DESCRIPTION">
+            <Text>Story continues.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_STORYTITLE">
+            <Text>Explosions in School</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_COMPLETION">
+            <Text>Young geniuses are having more and more creative ideas, but sometimes they simply blows up the classroom and leaves a mess.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_NAME">
+            <Text>Allocate them to do something useful.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_IMPERATIVE">
+            <Text>Have 10 Specialists.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_EX1_A1_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_COMPLETION">
+            <Text>Well educated specialists shine in every field, in a less explosive way.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_BREAK_NAME">
+            <Text>Throw them into a dungeon.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_BREAK_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_STORYTITLE">
+            <Text>Seeding Innovation</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_COMPLETION">
+            <Text>Some rich investors in the bank want to sponsor for some profitable academic research. They reach out for Yuni to discuss details of the plan.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_NAME">
+            <Text>Close.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_IMPERATIVE">
+            <Text>Have 3 Points in the Enlightenment Legacy Path.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_EX1_A2_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_COMPLETION">
+            <Text>New creations mean more revenue. Investors grab much of the latter.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_STORYTITLE">
+            <Text>Atheism</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_COMPLETION">
+            <Text>As an atheist, Yuni never know why many people dedicate themselves to religious rites.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_NAME">
+            <Text>Encourage the people to create arts instead of being superstitious.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_IMPERATIVE">
+            <Text>Have 2 Kilns.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_EX1_B1_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_COMPLETION">
+            <Text>Though people don't attend temples less, they do improve their taste of art appreciation a lot.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_BREAK_NAME">
+            <Text>Let them go if they like.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_BREAK_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_STORYTITLE">
+            <Text>Secularisation</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_COMPLETION">
+            <Text>As dissent over religious teachings are being constantly expressed, Yuni thinks a chance has come to do something.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_NAME">
+            <Text>Close.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_IMPERATIVE">
+            <Text>Have 5 Relics.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_EX1_B2_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_COMPLETION">
+            <Text>Yuni collects items called relics and uses them smartly to educate the public.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_DESCRIPTION">
+            <Text>{1_reward} in all Settlements.</Text>
+        </Row>
+        <!--Random Events-->
+        <!--Modern-->
+        <!--Leader Chain-->
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_TRIGGER_STORYTITLE">
+            <Text>Towards Victory</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_TRIGGER_COMPLETION">
+            <Text>Yuni suddenly realizes that the ultimate goal for a civilization is to win a Science Victory. She doesn't really know why she thinks so, but she knows the first step.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_NAME">
+            <Text>Close.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_IMPERATIVE">
+            <Text>Have 1 Point in the Space Race Legacy Path.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_MO1_A_TRIGGER_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_COMPLETION">
+            <Text>Well begun is half done. Yuni needs to prepare for launching a rocket later.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_DESCRIPTION">
+            <Text>{1_child_reward}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_REWARD_NAME">
+            <Text>Close.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_REWARD_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_BETTER_REWARD_NAME">
+            <Text>Close.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_BETTER_REWARD_DESCRIPTION">
+            <Text>{1_reward} and enter a Celebration.</Text>
+        </Row>
+
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_TRIGGER_STORYTITLE">
+            <Text>Retell the History</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_TRIGGER_COMPLETION">
+            <Text>Remnants of people long gone are waiting to be unearthed. Yuni wants to be the one to revive their stories so that she can pass legends of these treasures to future generations.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_NAME">
+            <Text>Close.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_IMPERATIVE">
+            <Text>Have 5 Artifacts.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_STORYTITLE">
+            <Text>{LOC_LEADER_CHAIN_YUNI_MO1_B_TRIGGER_STORYTITLE}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_COMPLETION">
+            <Text>Yuni finds that all Artifacts are created by the gamecore when entering the Modern Age. Anyway, they produce [icon:YIELD_CULTURE] Culture normally.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_DESCRIPTION">
+            <Text>{1_child_reward}</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_REWARD_NAME">
+            <Text>Close.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_REWARD_DESCRIPTION">
+            <Text>{1_reward}.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_BETTER_REWARD_NAME">
+            <Text>Close.</Text>
+        </Row>
+        <Row Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_BETTER_REWARD_DESCRIPTION">
+            <Text>{1_reward} and enter a Celebration.</Text>
+        </Row>
+        <!--Random Events-->
+    </EnglishText>
+</Database>

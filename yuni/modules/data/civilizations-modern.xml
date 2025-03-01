@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<LeaderCivPriorities>
+		<Row Leader="LEADER_YUNI" Civilization="CIVILIZATION_MEIJI" Priority="4"/>
+		<Row Leader="LEADER_YUNI" Civilization="CIVILIZATION_RUSSIA" Priority="2"/>
+	</LeaderCivPriorities>
+</Database>

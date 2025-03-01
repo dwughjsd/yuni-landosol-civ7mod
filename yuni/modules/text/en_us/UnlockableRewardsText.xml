@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<!-- Not moddable for now. Will wait and see.
+		<Row Tag="LOC_BADGE_YUNI_NAME">
+			<Text>Yuni Badge 1</Text>
+		</Row>
+		<Row Tag="LOC_BADGE_YUNI_P_NAME">
+			<Text>Yuni Badge 2</Text>
+		</Row>
+		<Row Tag="LOC_BANNER_YUNI_NAME">
+			<Text>Yuni Banner</Text>
+		</Row>
+		<Row Tag="LOC_TITLE_YUNI_NAME">
+			<Text>Little Sage in Library</Text>
+		</Row>
+		<Row Tag="LOC_STRATEGYCARD_YUNI_EXPLORATION_1_NAME">
+			<Text>Exploration Cultural Legacy Card</Text>
+		</Row>
+		<Row Tag="LOC_STRATEGYCARD_YUNI_EXPLORATION_1_DESCRIPTION">
+			<Text>As Yuni, access a new Exploration Legacy Card:[n]
+				+15% Culture, -10% Science</Text>
+		</Row>
+		<Row Tag="LOC_STRATEGYCARD_YUNI_EXPLORATION_2_NAME">
+			<Text>Exploration Scientific Legacy Card</Text>
+		</Row>
+		<Row Tag="LOC_STRATEGYCARD_YUNI_EXPLORATION_2_DESCRIPTION">
+			<Text>As Yuni, access a new Exploration Legacy Card:[n]
+				+15% Science, -10% Culture</Text>
+		</Row>
+		<Row Tag="LOC_STRATEGYCARD_YUNI_MODERN_1_NAME">
+			<Text>Modern Cultural Legacy Card</Text>
+		</Row>
+		<Row Tag="LOC_STRATEGYCARD_YUNI_MODERN_1_DESCRIPTION">
+			<Text>As Yuni, access a new Modern Legacy Card:[n]
+				+15% Culture, -10% Science</Text>
+		</Row>
+		<Row Tag="LOC_STRATEGYCARD_YUNI_MODERN_2_NAME">
+			<Text>Modern Scientific Legacy Card</Text>
+		</Row>
+		<Row Tag="LOC_STRATEGYCARD_YUNI_MODERN_2_DESCRIPTION">
+			<Text>As Yuni, access a new Modern Legacy Card:[n]
+				+15% Science, -10% Culture</Text>
+		</Row>
+		<Row Tag="LOC_ATTRIBUTENODE_YUNI_L1_NAME">
+			<Text>Cultural Attribute Node</Text>
+		</Row>
+		<Row Tag="LOC_ATTRIBUTENODE_YUNI_L1_DESCRIPTION">
+			<Text>+15% Production towards constructing Buildings and Wonders with Great Works slots.</Text>
+		</Row>
+		<Row Tag="LOC_ATTRIBUTENODE_YUNI_L2_NAME">
+			<Text>Scientific Attribute Node</Text>
+		</Row>
+		<Row Tag="LOC_ATTRIBUTENODE_YUNI_L2_DESCRIPTION">
+			<Text>+1 to the adjacencies of standard Gold, Production, and Science Buildings.</Text>
+		</Row>
+		-->
+	</EnglishText>
+</Database>

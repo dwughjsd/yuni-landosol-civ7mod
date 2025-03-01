@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_MODULE_ENDLESS_WINS_NAME">
+			<Text>Endless wins under your leadership</Text>
+		</Row>
+		<Row Tag="LOC_MODULE_ENDLESS_WINS_DESCRIPTION">
+			<Text>Let you just have endless wins just like you are under president Trump's leadership!</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_FAST_FORWARD_ERA_NAME">
+			<Text>I'm not tired of winning!</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_FAST_FORWARD_ERA_SHORT_NAME">
+			<Text>Win this era</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_FAST_FORWARD_ERA_DESCRIPTION">
+			<Text>Complete Legacy Path of this era and let future tech end this era immediately.</Text>
+		</Row>
+	</EnglishText>
+</Database>

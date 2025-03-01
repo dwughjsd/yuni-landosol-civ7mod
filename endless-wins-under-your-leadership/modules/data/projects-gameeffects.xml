@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="LEGACY_PATH_MODERN_MODIFIER1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_MODERN_MILITARY</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_MODERN_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_MODERN_SCIENCE</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_MODERN_MODIFIER3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_MODERN_CULTURE</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_MODERN_MODIFIER4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_MODERN_ECONOMIC</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_EXPLORATION_MODIFIER1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_EXPLORATION_MILITARY</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_EXPLORATION_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_EXPLORATION_SCIENCE</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_EXPLORATION_MODIFIER3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_EXPLORATION_CULTURE</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_EXPLORATION_MODIFIER4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_EXPLORATION_ECONOMIC</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_ANTIQUITY_MODIFIER1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_MILITARY</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_ANTIQUITY_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_SCIENCE</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_ANTIQUITY_MODIFIER3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_CULTURE</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="LEGACY_PATH_ANTIQUITY_MODIFIER4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_POINT" run-once="false" permanent="true">
+        <Argument name="Amount">500</Argument>
+        <Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_ECONOMIC</Argument>
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+    </Modifier>
+    <Modifier id="MOD_ENDLESS_WINS_FREE_TECHS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+        <Argument name="Amount">35</Argument>
+        <Argument name="SystemType">SYSTEM_TECH</Argument>
+        <Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_CHEAPEST_UNLOCKED</Argument>
+    </Modifier>
+    <Modifier id="MOD_ENDLESS_WINS_FREE_TECHS_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+        <Argument name="Amount">25</Argument>
+        <Argument name="SystemType">SYSTEM_TECH</Argument>
+        <Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_CHEAPEST_UNLOCKED</Argument>
+    </Modifier>
+    <Modifier id="MOD_ENDLESS_WINS_PURCHASE_RATE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+        <Argument name="ConstructibleClass">BUILDING</Argument>
+        <Argument name="Percent">10000</Argument>
+        <Argument name="Tooltip">LOC_PROJECT_FAST_FORWARD_ERA_NAME</Argument>
+    </Modifier>
+    <Modifier id="MOD_ENDLESS_WINS_BUILDING_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+        <Argument name="ConstructibleClass">BUILDING</Argument>
+        <Argument name="Percent">100000</Argument>
+    </Modifier>
+    <Modifier id="MOD_ENDLESS_WINS_PROJECT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+        <Argument name="Percent">100000</Argument>
+        <String context="Description">LOC_PROJECT_FAST_FORWARD_ERA_NAME</String>
+    </Modifier>
+    <Modifier id="MOD_ENDLESS_WINS_WONDER_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_IS_HUMAN"/>
+        </SubjectRequirements>
+        <Argument name="Percent">100000</Argument>
+        <String context="Description">LOC_PROJECT_FAST_FORWARD_ERA_NAME</String>
+    </Modifier>
+</GameEffects>

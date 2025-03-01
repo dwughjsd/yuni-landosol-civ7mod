@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_MECHA_ARM_UNLOCK_TITLE">
+			<Text>Unlock at Plachta Curious Theorist level 2</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_CLOUDBURST_HYDRITE_UNLOCK_TITLE">
+			<Text>Unlock at Plachta Curious Theorist level 5</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM_UNLOCK_TITLE">
+			<Text>Unlock at Plachta Curious Theorist level 9</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_MECHA_ARM_NAME">
+			<Text>Mecha Arm</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_MECHA_ARM_DESCRIPTION">
+			<Text>To protect future.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_MECHA_ARM_FUNCTIONAL_DESCRIPTION">
+			<Text>New Settlements start with an additional Population.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_CLOUDBURST_HYDRITE_NAME">
+			<Text>Cloudburst Hydrite</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_CLOUDBURST_HYDRITE_DESCRIPTION">
+			<Text>A tool to summon rainclouds.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_CLOUDBURST_HYDRITE_FUNCTIONAL_DESCRIPTION">
+			<Text>+1[icon:YIELD_FOOD] Food per Age on Warehouse Buildings.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM_NAME">
+			<Text>Wiegentraum</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM_DESCRIPTION">
+			<Text>Contains wishes.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM_FUNCTIONAL_DESCRIPTION">
+			<Text>+1[icon:YIELD_Science] Science and +1[icon:YIELD_Culture] Culture on Ageless Buildings.</Text>
+		</Row>
+	</EnglishText>
+</Database>

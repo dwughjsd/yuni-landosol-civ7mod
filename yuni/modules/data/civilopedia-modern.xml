@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<CivilopediaPageExcludes>
+		<Row SectionID="BUILDINGS" PageID="BUILDING_OBSERVATORY_MO_YUNI"/>
+	</CivilopediaPageExcludes>
+</Database>

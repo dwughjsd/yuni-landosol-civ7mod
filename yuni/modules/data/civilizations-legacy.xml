@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<LegacyLeaderCivPriorities>
+		<Row Leader="LEADER_YUNI" CivilizationType="CIVILIZATION_MAYA"/>
+		<Row Leader="LEADER_YUNI" CivilizationType="CIVILIZATION_ROME"/>
+		<Row Leader="LEADER_YUNI" CivilizationType="CIVILIZATION_ABBASID"/>
+		<Row Leader="LEADER_YUNI" CivilizationType="CIVILIZATION_MEIJI"/>
+		<Row Leader="LEADER_YUNI" CivilizationType="CIVILIZATION_RUSSIA"/>
+	</LegacyLeaderCivPriorities>
+</Database>

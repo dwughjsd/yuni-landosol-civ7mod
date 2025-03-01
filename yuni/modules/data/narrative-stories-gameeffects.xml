@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <!--Yuni (original persona). "ONLY" means other personas doesn't count.-->
+    <RequirementSet id="REQSET_LEADER_CHAIN_YUNI_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_YUNI_ONLY"/>
+    </RequirementSet>
+    <Requirement id="REQ_STORY_LEADER_YUNI" type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+        <Argument name="LeaderType">LEADER_YUNI</Argument>
+        <Argument name="AcceptVariation">true</Argument>
+    </Requirement>
+    <Requirement id="REQ_STORY_LEADER_YUNI_ONLY" type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+        <Argument name="LeaderType">LEADER_YUNI</Argument>
+    </Requirement>
+</GameEffects>

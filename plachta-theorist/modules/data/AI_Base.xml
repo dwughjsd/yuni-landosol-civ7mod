@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<AiListTypes>
+		<!-- Leader Yield biases -->
+		<Row ListType="Plachta Theorist Yield Biases"/>
+	</AiListTypes>
+	<AiLists>
+		<!-- Leader Yield Biases -->
+		<Row ListType="Plachta Theorist Yield Biases" LeaderType="TRAIT_LEADER_PLACHTA_THEORIST_ABILITY" System="YieldBiases"/>
+	</AiLists>
+	<AiFavoredItems>
+		<!-- Leader Yield Biases -->
+		<Row ListType="Plachta Theorist Yield Biases" Item="YIELD_SCIENCE" Value="50"/>
+		<Row ListType="Plachta Theorist Yield Biases" Item="YIELD_FOOD" Value="25"/>
+	</AiFavoredItems>
+</Database>

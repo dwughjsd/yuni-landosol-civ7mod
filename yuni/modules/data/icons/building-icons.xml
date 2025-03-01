@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Database>
+	<IconDefinitions>
+		<Row>
+			<ID>BUILDING_LIBRARY_EX_YUNI</ID>
+			<Path>blp:buildicon_library</Path>
+		</Row>
+		<Row>
+			<ID>BUILDING_OBSERVATORY_MO_YUNI</ID>
+			<Path>blp:buildicon_observatory</Path>
+		</Row>
+	</IconDefinitions>
+</Database>

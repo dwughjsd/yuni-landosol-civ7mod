@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_MEMENTO_YUNI_ROSETTA_UNLOCK_TITLE">
+			<Text>Unlock at Yuni level 2</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_YUNICOPTER_UNLOCK_TITLE">
+			<Text>Unlock at Yuni level 5</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_UNLOCK_TITLE">
+			<Text>Unlock at Yuni level 9</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_ROSETTA_NAME">
+			<Text>Rosetta</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_ROSETTA_DESCRIPTION">
+			<Text>A talking silicon-based lifeform.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_ROSETTA_FUNCTIONAL_DESCRIPTION">
+			<Text>+1[icon:YIELD_SCIENCE] Science per Age on Science Buildings.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_YUNICOPTER_NAME">
+			<Text>Yunicopter</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_YUNICOPTER_DESCRIPTION">
+			<Text>This name sounds better than "Yunipter".</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_YUNICOPTER_FUNCTIONAL_DESCRIPTION">
+			<Text>+50[icon:YIELD_Culture] Culture for every 100 Tiles Explored by your Units.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME">
+			<Text>Pen-Axe Replica</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_DESCRIPTION">
+			<Text>Pen is mightier, but not than axe.</Text>
+		</Row>
+		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_FUNCTIONAL_DESCRIPTION">
+			<Text>+2[icon:YIELD_Culture] Culture for every Infantry Unit.</Text>
+		</Row>
+	</EnglishText>
+</Database>

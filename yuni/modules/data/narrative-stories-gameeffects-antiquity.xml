@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <!--Leader Chain-->
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_MISSION_A_REWARD_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_MISSION_A_STORY_TAG_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_MISSION_B_REWARD_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_MISSION_B_STORY_TAG_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_BREAK_REWARD_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_A_MISSION_REWARD_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_SCIENTIFIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_A_MISSION_STORY_TAG_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_A_BREAK_REWARD_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_B_MISSION_REWARD_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_B_MISSION_STORY_TAG_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_YUNI_AQ1_B_BREAK_REWARD_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <!--Conditions that start the first quest choice.-->
+    <RequirementSet id="REQSET_LEADER_CHAIN_YUNI_AQ1_INIT_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">BUILDING_LIBRARY</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <!--First choice, make AQ1_A available-->
+    <RequirementSet id="REQSET_LEADER_CHAIN_YUNI_AQ1_MISSION_A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_VICTORY_POINTS">
+            <Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_SCIENCE</Argument>
+            <Argument name="VPNeeded">3</Argument>
+        </Requirement>
+    </RequirementSet>
+    <!--Second choice, make AQ1_B available-->
+    <RequirementSet id="REQSET_LEADER_CHAIN_YUNI_AQ1_MISSION_B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_BECOME_SUZERAIN01</Argument>
+            <Argument name="AfterInit">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <!--Conditions that start AQ1_A.-->
+    <RequirementSet id="REQSET_LEADER_CHAIN_YUNI_AQ1_A_INIT_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_TECH_AQ_CURRENCY</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <!--First choice-->
+    <RequirementSet id="REQSET_LEADER_CHAIN_YUNI_AQ1_A_MISSION_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_VICTORY_POINTS">
+            <Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_SCIENCE</Argument>
+            <Argument name="VPNeeded">6</Argument>
+        </Requirement>
+    </RequirementSet>
+    <!--Conditions that start AQ1_B.-->
+    <RequirementSet id="REQSET_LEADER_CHAIN_YUNI_AQ1_B_INIT_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">BUILDING_MONUMENT</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <!--First choice-->
+    <RequirementSet id="REQSET_LEADER_CHAIN_YUNI_AQ1_B_MISSION_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,IsWonder,True</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

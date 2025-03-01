@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_TITLE">
+			<Text>{LOC_LEADER_YUNI_NAME}</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_1">
+			<Text>Placeholder.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_2">
+			<Text>Placeholder.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_3">
+			<Text>Placeholder.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_4">
+			<Text>Placeholder.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_5">
+			<Text>Placeholder.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_6">
+			<Text>Placeholder.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_7">
+			<Text>Placeholder.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_8">
+			<Text>Placeholder.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_9">
+			<Text>Placeholder.</Text>
+		</Row>
+	</EnglishText>
+</Database>
+				

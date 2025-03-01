@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+  <LocalizedText>
+    <Replace Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_1_NAME" Language="zh_Hans_CN">
+      <Text>优妮探索时代传奇文化</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_1_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>在此时代中+15%[icon:YIELD_CULTURE]文化值，但-10%[icon:YIELD_Science]科技值</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_2_NAME" Language="zh_Hans_CN">
+      <Text>优妮探索时代传奇科技</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_2_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>在此时代中+15%[icon:YIELD_SCIENCE]科技值，但-10%[icon:YIELD_CULTURE]文化值</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_AQ_YUNI_SCIENCE_NAME" Language="zh_Hans_CN">
+      <Text>{LOC_TRAIT_LEADER_YUNI_ABILITY_NAME}</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_AQ_YUNI_SCIENCE_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>图书馆变为优妮图书馆（其在下个时代将维持基本产出、相邻加成，以及效果）。</Text>
+    </Replace>
+
+    <Replace Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_1_NAME" Language="zh_Hans_CN">
+      <Text>优妮近世时代传奇文化</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_1_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>在此时代中+15%[icon:YIELD_CULTURE]文化值，但-10%[icon:YIELD_Science]科技值</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_2_NAME" Language="zh_Hans_CN">
+      <Text>优妮近世时代传奇科技</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_2_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>在此时代中+15%[icon:YIELD_SCIENCE]科技值，但-10%[icon:YIELD_CULTURE]文化值</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_EX_YUNI_SCIENCE_NAME" Language="zh_Hans_CN">
+      <Text>{LOC_TRAIT_LEADER_YUNI_ABILITY_NAME}</Text>
+    </Replace>
+    <Replace Tag="LOC_CARD_EX_YUNI_SCIENCE_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>天文台变为优妮天文台（其在下个时代将维持基本产出、相邻加成，以及效果）。</Text>
+    </Replace>
+
+    <Replace Tag="LOC_MOD_ATTRIBUTE_CULTURAL_LEGEND_YUNI_L1_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>传奇解锁。建造拥有巨作槽位的建筑和奇观时+15%[icon:YIELD_PRODUCTION]生产力效用。</Text>
+    </Replace>
+    <Replace Tag="LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_YUNI_L2_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>传奇解锁。标准[icon:YIELD_GOLD]金币、[icon:YIELD_PRODUCTION]生产力和[icon:YIELD_SCIENCE]科技值建筑相邻加成+1。</Text>
+    </Replace>
+
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_TITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_YUNI_NAME}</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_3" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_4" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_5" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_6" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_7" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_8" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_9" Language="zh_Hans_CN">
+      <Text>占位。</Text>
+    </Replace>
+
+    <Replace Tag="LOC_BUILDING_LIBRARY_EX_YUNI_NAME" Language="zh_Hans_CN">
+      <Text>优妮图书馆</Text>
+    </Replace>
+    <Replace Tag="LOC_BUILDING_OBSERVATORY_MO_YUNI_NAME" Language="zh_Hans_CN">
+      <Text>优妮天文台</Text>
+    </Replace>
+
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_NAME" Language="zh_Hans_CN">
+      <Text>文科学者的浪漫</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_DESC" Language="zh_Hans_CN">
+      <Text>喜欢在其定居点中同时拥有[icon:YIELD_SCIENCE]科技值和[icon:YIELD_CULTURE]文化值建筑的文明。讨厌在其定居点中同时拥有[icon:YIELD_GOLD]金币和[icon:YIELD_HAPPINESS]幸福值建筑的文明。</Text>
+    </Replace>
+
+    <!-- Main Menu Char Select Text-->
+    <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_YUNI_ANY" Language="zh_Hans_CN">
+      <Text>我不会把这世界的真相公之于众。但是啊，世界，哪怕只有一瞬间，我也已触碰到了你的秘密。</Text>
+    </Replace>
+
+    <!--Statement Text-->
+    <Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_LEADER_YUNI_ANY" Language="zh_Hans_CN">
+      <Text>我叫优妮。充满敬意和友爱地称呼我为优妮前辈吧，后辈。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_RECIPIENT_LEADER_YUNI_ANY" Language="zh_Hans_CN">
+      <Text>我叫优妮。充满敬意和友爱地称呼我为优妮前辈吧，后辈。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_LEADER_YUNI_ANY" Language="zh_Hans_CN">
+      <Text>我叫优妮。充满敬意和友爱地称呼我为优妮前辈吧，后辈。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_DECLARE_WAR_INITIATOR_LEADER_YUNI_ANY" Language="zh_Hans_CN">
+      <Text>长点儿教训吧，你这蠢货！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_DECLARE_WAR_RECIPIENT_LEADER_YUNI_ANY" Language="zh_Hans_CN">
+      <Text>玩闹到此为止，现在是学习时间。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_DEFEAT_AI_LEADER_YUNI_ANY" Language="zh_Hans_CN">
+      <Text>你怎么看：我至今为止，给世间留下过什么吗？</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_MAKE_DEAL_ACCEPTED_LEADER_YUNI" Language="zh_Hans_CN">
+      <Text>对我来说，这算是我的胜利。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_YUNI" Language="zh_Hans_CN">
+      <Text>诶——不要，好无聊。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_YUNI_NAME" Language="zh_Hans_CN"> <!--, Librarian Sage-->
+      <Text>优妮</Text>
+    </Replace>
+
+    <Replace Tag="LOC_LEADER_YUNI_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>可使用独特的传承卡，用以在下个时代保留一种科技值建筑的基础产出、相邻加成和效果。科技值建筑+2[icon:YIELD_CULTURE]文化值，按时代叠加。你的单位每探索100个地块，便+50[icon:YIELD_SCIENCE]科技值，按时代叠加。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_NAME" Language="zh_Hans_CN">
+      <Text>博学者的教诲</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[LIST][LI]可使用独特的[B]传承卡[/B]，用以在下个时代保留一种[B]科技值建筑[/B]的基础产出、相邻加成和效果。[LI][B]科技值建筑+2[icon:YIELD_CULTURE]文化值[/B]，按时代叠加。[LI]你的单位每[B]探索100个地块[/B]，便[B]+50[icon:YIELD_SCIENCE]科技值[/B]，按时代叠加。[/LIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_YUNI" Language="zh_Hans_CN">
+      <Text>圣特蕾莎女子学院公认的才女优妮的智慧远超过同龄人，因此获得了独占校内的老图书馆楼“象牙塔”的特权。她发现了她所在的阿斯特莱亚世界的虚构本质，然而兰德索尔学界却从未认真看待过她的理论。无法独自对抗虚伪世界的优妮选择放下对真相的研究而尽情享受青春年华，但她的所知却一直留存在她的笔记本中，用以在时机合适时证明她的远见。</Text>
+    </Replace>
+    <Replace Tag="LOC_PROFILE_TITLE_YUNI" Language="zh_Hans_CN">
+      <Text>图书馆的小小贤者</Text>
+    </Replace>
+
+    <Replace Tag="LOC_MEMENTO_YUNI_ROSETTA_UNLOCK_TITLE" Language="zh_Hans_CN">
+      <Text>在优妮2级时解锁</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_YUNICOPTER_UNLOCK_TITLE" Language="zh_Hans_CN">
+      <Text>在优妮5级时解锁</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_UNLOCK_TITLE" Language="zh_Hans_CN">
+      <Text>在优妮9级时解锁</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_ROSETTA_NAME" Language="zh_Hans_CN">
+      <Text>罗塞塔</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_ROSETTA_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>会聊天的硅基生物。</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_ROSETTA_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>科技值建筑+1[icon:YIELD_SCIENCE]科技值，按时代叠加。</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_YUNICOPTER_NAME" Language="zh_Hans_CN">
+      <Text>优妮旋翼机</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_YUNICOPTER_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>这名字比“优妮翼机”好点。</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_YUNICOPTER_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>你的单位每探索100个地块，便+50[icon:YIELD_CULTURE]文化值。</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME" Language="zh_Hans_CN">
+      <Text>笔斧复制品</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>笔强于剑，于斧则不然。</Text>
+    </Replace>
+    <Replace Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>每有一个步兵单位，便+2[icon:YIELD_CULTURE]文化值。</Text>
+    </Replace>
+
+    <!--Name: the text for the choice. Description: The reward that granted by the story. Storytitle: Flavor text title shown when the story happens (mission finished). Completion: Flavor text shown when the story happens. Imperative: The mission that make the story happens. If a story doesn't need a mission to be finished, it will only have Storytitle and Completion.-->
+    <!--Antiquity-->
+    <!--Leader Chain-->
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_INIT_STORYTITLE" Language="zh_Hans_CN">
+      <Text>学术写作</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_INIT_COMPLETION" Language="zh_Hans_CN">
+      <Text>优妮沉浸在图书馆中，为她的新研究寻找合适的选题。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_NAME" Language="zh_Hans_CN">
+      <Text>研究自然科学。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>拥有大图书馆传承路径的3点。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_AQ1_INIT_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_COMPLETION" Language="zh_Hans_CN">
+      <Text>经过一番精心实验和文字工作，优妮完成了她的新理论，激发了学界对一门全新的领域的思考。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_A_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_NAME" Language="zh_Hans_CN">
+      <Text>研究风土人情。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>成为一个独立势力的宗主国。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_AQ1_INIT_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_COMPLETION" Language="zh_Hans_CN">
+      <Text>优妮将附近民族的独特风俗记录在册。这些文化传统令她的人民大感新奇。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_MISSION_B_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_BREAK_NAME" Language="zh_Hans_CN">
+      <Text>先找本幽默的小说看好了。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_BREAK_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_INIT_STORYTITLE" Language="zh_Hans_CN">
+      <Text>奖学金</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_INIT_COMPLETION" Language="zh_Hans_CN">
+      <Text>一位老师向优妮建言，希望为优秀的学生提供经济奖励。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_NAME" Language="zh_Hans_CN">
+      <Text>让他们先做些成就出来。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>拥有大图书馆传承路径的6点。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_AQ1_A_INIT_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_COMPLETION" Language="zh_Hans_CN">
+      <Text>学生中的佼佼者之中，最优秀而擅长人际交往的“和睦团体”终于在通过了毫不讲理的评审会议后拿到了这笔奖金。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_MISSION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_BREAK_NAME" Language="zh_Hans_CN">
+      <Text>反正也没我优妮的份。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_A_BREAK_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_INIT_STORYTITLE" Language="zh_Hans_CN">
+      <Text>艺术加工</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_INIT_COMPLETION" Language="zh_Hans_CN">
+      <Text>艺术家们喜爱优妮描述事物时使用的辞藻，但工程师们却难以听懂她想表达的含义。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_NAME" Language="zh_Hans_CN">
+      <Text>要他们好好学习何为浪漫。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>建造一座奇观。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_AQ1_B_INIT_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_COMPLETION" Language="zh_Hans_CN">
+      <Text>完成前所未有的伟大工程后，人们开始思考优妮的想法是否其实还太保守了。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_MISSION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_BREAK_NAME" Language="zh_Hans_CN">
+      <Text>用更加平实而精确的语言复述。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_AQ1_B_BREAK_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>所有定居点{1_reward}。</Text>
+    </Replace>
+    <!--Random Events-->
+    <!--Exploration-->
+    <!--Leader Chain-->
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_INIT_STORYTITLE" Language="zh_Hans_CN">
+      <Text>探寻真相</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_INIT_COMPLETION" Language="zh_Hans_CN">
+      <Text>有些真理任何聪明都无法企及，但求知的过程本身就是优妮的目的。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_CHOICE_A_NAME" Language="zh_Hans_CN">
+      <Text>研究世界的虚构。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_CHOICE_A_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>故事仍在继续。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_CHOICE_B_NAME" Language="zh_Hans_CN">
+      <Text>研究发展心理学。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_CHOICE_B_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>故事仍在继续。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_STORYTITLE" Language="zh_Hans_CN">
+      <Text>校舍爆破</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_COMPLETION" Language="zh_Hans_CN">
+      <Text>天才的青年们有着越来越多的创新想法，但偶尔天才们会炸得校园一片狼藉。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_NAME" Language="zh_Hans_CN">
+      <Text>把他们发配去干正事。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>拥有10名专家。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_EX1_A1_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_COMPLETION" Language="zh_Hans_CN">
+      <Text>受过良好教育的英才们开始在各行各业发光发热，不过是以不那么爆炸性的方式。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_MISSION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_BREAK_NAME" Language="zh_Hans_CN">
+      <Text>把他们扔进地牢。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A1_BREAK_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_STORYTITLE" Language="zh_Hans_CN">
+      <Text>播种创新</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_COMPLETION" Language="zh_Hans_CN">
+      <Text>银行里富有的投资人希望赞助一批有利可图的学术研究，因此他们找到优妮谈论具体方案。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_NAME" Language="zh_Hans_CN">
+      <Text>关闭。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>拥有启蒙传承路径的3点。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_EX1_A2_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_COMPLETION" Language="zh_Hans_CN">
+      <Text>新的发明创造意味着更多的利润，令投资人们赚得盆满钵满。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_A2_MISSION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_STORYTITLE" Language="zh_Hans_CN">
+      <Text>无神论</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_COMPLETION" Language="zh_Hans_CN">
+      <Text>作为无神论者，优妮不理解为何人们会钟情于宗教活动。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_NAME" Language="zh_Hans_CN">
+      <Text>鼓励人们创作艺术而不是盲信。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>拥有2座窑。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_EX1_B1_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_COMPLETION" Language="zh_Hans_CN">
+      <Text>虽然人们拜访寺庙的次数有增无减，但人民的艺术鉴赏品味确实大有提升。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_MISSION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_BREAK_NAME" Language="zh_Hans_CN">
+      <Text>他们爱去就随他们去吧。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B1_BREAK_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_STORYTITLE" Language="zh_Hans_CN">
+      <Text>世俗化</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_COMPLETION" Language="zh_Hans_CN">
+      <Text>人们不断提出对宗教教义的质疑，优妮认为应当抓住这次机会做些什么。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_NAME" Language="zh_Hans_CN">
+      <Text>关闭。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>拥有5件遗物。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_EX1_B2_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_COMPLETION" Language="zh_Hans_CN">
+      <Text>优妮收集了大量被称为遗物的物件，并巧妙地利用它们教育大众。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_EX1_B2_MISSION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>所有定居点{1_reward}。</Text>
+    </Replace>
+    <!--Random Events-->
+    <!--Modern-->
+    <!--Leader Chain-->
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_TRIGGER_STORYTITLE" Language="zh_Hans_CN">
+      <Text>迈向胜利</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_TRIGGER_COMPLETION" Language="zh_Hans_CN">
+      <Text>优妮突然意识到，文明发展的终极目标是赢得科技胜利——虽然她并不知道为什么自己会这么想，但她知道第一步怎么做。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_NAME" Language="zh_Hans_CN">
+      <Text>关闭。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>拥有太空竞赛传承路径的1点。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_MO1_A_TRIGGER_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_COMPLETION" Language="zh_Hans_CN">
+      <Text>好的开始是成功的一半。接下来，优妮需要筹备发射火箭的事情了。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_MISSION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_child_reward}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_REWARD_NAME" Language="zh_Hans_CN">
+      <Text>关闭。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_REWARD_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_BETTER_REWARD_NAME" Language="zh_Hans_CN">
+      <Text>关闭。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_A_BETTER_REWARD_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}并进入庆典。</Text>
+    </Replace>
+
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_TRIGGER_STORYTITLE" Language="zh_Hans_CN">
+      <Text>复述历史</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_TRIGGER_COMPLETION" Language="zh_Hans_CN">
+      <Text>失落的遗迹等待着重见天日。优妮想发掘它们的故事，以便将这些珍宝的传奇流传到后世。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_NAME" Language="zh_Hans_CN">
+      <Text>关闭。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_IMPERATIVE" Language="zh_Hans_CN">
+      <Text>拥有5件文物。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_STORYTITLE" Language="zh_Hans_CN">
+      <Text>{LOC_LEADER_CHAIN_YUNI_MO1_B_TRIGGER_STORYTITLE}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_COMPLETION" Language="zh_Hans_CN">
+      <Text>优妮发现，所有文物都是在进入近世时代时由游戏内核创造的。但无论如何，它们能够提供[icon:YIELD_CULTURE]文化值。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_MISSION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_child_reward}</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_REWARD_NAME" Language="zh_Hans_CN">
+      <Text>关闭。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_REWARD_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_BETTER_REWARD_NAME" Language="zh_Hans_CN">
+      <Text>关闭。</Text>
+    </Replace>
+    <Replace Tag="LOC_LEADER_CHAIN_YUNI_MO1_B_BETTER_REWARD_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}并进入庆典。</Text>
+    </Replace>
+    <!--Random Events-->
+
+    <!-- Not moddable for now. Will wait and see.
+    <Replace Tag="LOC_BADGE_YUNI_NAME" Language="zh_Hans_CN">
+      <Text>优妮徽章1</Text>
+    </Replace>
+    <Replace Tag="LOC_BADGE_YUNI_P_NAME" Language="zh_Hans_CN">
+      <Text>优妮徽章2</Text>
+    </Replace>
+    <Replace Tag="LOC_BANNER_YUNI_NAME" Language="zh_Hans_CN">
+      <Text>优妮背景</Text>
+    </Replace>
+    <Replace Tag="LOC_TITLE_YUNI_NAME" Language="zh_Hans_CN">
+      <Text>图书馆的小小贤者</Text>
+    </Replace>
+    <Replace Tag="LOC_STRATEGYCARD_YUNI_EXPLORATION_1_NAME" Language="zh_Hans_CN">
+      <Text>探索时代文化传承卡</Text>
+    </Replace>
+    <Replace Tag="LOC_STRATEGYCARD_YUNI_EXPLORATION_1_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>扮演优妮，获得一张新的近世时代传承卡：[n]
+				+15%文化值、-10%科技值</Text>
+    </Replace>
+    <Replace Tag="LOC_STRATEGYCARD_YUNI_EXPLORATION_2_NAME" Language="zh_Hans_CN">
+      <Text>探索时代科技传承卡</Text>
+    </Replace>
+    <Replace Tag="LOC_STRATEGYCARD_YUNI_EXPLORATION_2_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>扮演优妮，获得一张新的探索时代传承卡：[n]
+				+15%科技值、-10%文化值</Text>
+    </Replace>
+    <Replace Tag="LOC_STRATEGYCARD_YUNI_MODERN_1_NAME" Language="zh_Hans_CN">
+      <Text>近世时代文化传承卡</Text>
+    </Replace>
+    <Replace Tag="LOC_STRATEGYCARD_YUNI_MODERN_1_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>扮演优妮，获得一张新的近世时代传承卡：[n]
+				+15%科技值、-10%文化值</Text>
+    </Replace>
+    <Replace Tag="LOC_STRATEGYCARD_YUNI_MODERN_2_NAME" Language="zh_Hans_CN">
+      <Text>近世时代科技传承卡</Text>
+    </Replace>
+    <Replace Tag="LOC_STRATEGYCARD_YUNI_MODERN_2_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>扮演优妮，获得一张新的近世时代传承卡：[n]
+				+15%科技值、-10%文化值</Text>
+    </Replace>
+    <Replace Tag="LOC_ATTRIBUTENODE_YUNI_L1_NAME" Language="zh_Hans_CN">
+      <Text>文化属性节点</Text>
+    </Replace>
+    <Replace Tag="LOC_ATTRIBUTENODE_YUNI_L1_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>建造拥有巨作槽位的建筑和奇观时+15%生产力效用。</Text>
+    </Replace>
+    <Replace Tag="LOC_ATTRIBUTENODE_YUNI_L2_NAME" Language="zh_Hans_CN">
+      <Text>科技属性节点</Text>
+    </Replace>
+    <Replace Tag="LOC_ATTRIBUTENODE_YUNI_L2_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>标准金币、生产力和科技值建筑+1相邻加成。</Text>
+    </Replace>
+    -->
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_YUNI_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>扮演[B]优妮[/B]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_YUNI_MAYA_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[B]玛雅[/B]能在策略上助力[B]优妮[/B]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_YUNI_ROME_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[B]优妮[/B]和一位伊特拉斯坎女神同名，后者与[B]罗马[/B]来自相同的地区。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_YUNI_ABBASID_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[B]阿拔斯[/B]能在策略上助力[B]优妮[/B]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_YUNI_MEIJI_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[B]优妮[/B]是[B]日本[/B]人创作的虚构角色。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_YUNI_RUSSIA_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[B]俄罗斯[/B]能在策略上助力[B]优妮[/B]。</Text>
+    </Replace>
+  </LocalizedText>
+</Database>

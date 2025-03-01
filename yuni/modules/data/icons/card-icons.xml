@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Database>
+	<IconDefinitions>
+		<Row>
+			<ID>STRATEGYCARD_AS_YUNI_EXPLORATION_1</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+		<Row>
+			<ID>STRATEGYCARD_AS_YUNI_EXPLORATION_2</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+		<Row>
+			<ID>STRATEGYCARD_AS_AQ_YUNI_SCIENCE</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+
+		<Row>
+			<ID>STRATEGYCARD_YUNI_EXPLORATION_1</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+		<Row>
+			<ID>STRATEGYCARD_YUNI_EXPLORATION_2</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+		<Row>
+			<ID>STRATEGYCARD_AQ_YUNI_SCIENCE</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+
+		<Row>
+			<ID>STRATEGYCARD_AS_YUNI_MODERN_1</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+		<Row>
+			<ID>STRATEGYCARD_AS_YUNI_MODERN_2</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+		<Row>
+			<ID>STRATEGYCARD_AS_EX_YUNI_SCIENCE</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+
+		<Row>
+			<ID>STRATEGYCARD_YUNI_MODERN_1</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+		<Row>
+			<ID>STRATEGYCARD_YUNI_MODERN_2</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+		<Row>
+			<ID>STRATEGYCARD_EX_YUNI_SCIENCE</ID>
+			<Path>blp:ba_catherine_p</Path>
+		</Row>
+
+	</IconDefinitions>
+</Database>

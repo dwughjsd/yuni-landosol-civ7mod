@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_UNLOCK"/>
+	</Kinds>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_4_YUNI" Kind="KIND_UNLOCK"/>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_8_YUNI" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_YUNI"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_YUNI"/>
+	</Unlocks>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_LEADER_IS_YUNI" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_YUNI" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_YUNI" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_LEADER_IS_YUNI" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_YUNI" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_YUNI" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_LEADER_IS_YUNI" Name="LeaderType" Value="LEADER_YUNI"/>
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_YUNI" Name="LeaderType" Value="LEADER_YUNI"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_YUNI" Name="LeaderType" Value="LEADER_YUNI"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_LEADER_IS_YUNI" RequirementId="REQ_LEADER_IS_YUNI"/>
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_YUNI" RequirementId="REQ_LEGEND_LEVEL_4_YUNI"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_YUNI" RequirementId="REQ_LEGEND_LEVEL_8_YUNI"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+	<!--
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_LANDOSOL" RequirementSetId="REQSET_LEADER_IS_YUNI" Description="LOC_UNLOCK_PLAY_AS_YUNI_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_YUNI_TOOLTIP"/>
+		-->
+	</UnlockRequirements>
+</Database>

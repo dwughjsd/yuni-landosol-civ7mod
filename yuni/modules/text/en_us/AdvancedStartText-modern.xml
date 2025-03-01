@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_1_NAME">
+			<Text>Yuni Modern Legend Cultural</Text>
+		</Row>
+		<Row Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_1_DESCRIPTION">
+			<Text>For this Age, gain +15% CULTURE[icon:YIELD_CULTURE] at the cost of -10% Science[icon:YIELD_Science]</Text>
+		</Row>
+
+		<Row Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_2_NAME">
+			<Text>Yuni Modern Legend Scientific</Text>
+		</Row>
+		<Row Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_2_DESCRIPTION">
+			<Text>For this Age, gain +15% Science[icon:YIELD_SCIENCE] at the cost of -10% Culture[icon:YIELD_CULTURE]</Text>
+		</Row>
+
+		<Row Tag="LOC_CARD_EX_YUNI_SCIENCE_NAME">
+			<Text>{LOC_TRAIT_LEADER_YUNI_ABILITY_NAME}</Text>
+		</Row>
+		<Row Tag="LOC_CARD_EX_YUNI_SCIENCE_DESCRIPTION">
+			<Text>Observatories become Yuni's Observatories (They retain their base yields, adjacency bonuses, and effects in the next age).</Text>
+		</Row>
+	</EnglishText>
+</Database>

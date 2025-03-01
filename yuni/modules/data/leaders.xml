@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="LEADER_YUNI" Kind="KIND_LEADER"/>
+		<Row Type="TRAIT_LEADER_YUNI_ABILITY" Kind="KIND_TRAIT"/>
+	</Types>
+	<Leaders>
+		<Row LeaderType="LEADER_YUNI" Name="LOC_LEADER_YUNI_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
+	</Leaders>
+	<AiFavoredItems>
+	</AiFavoredItems>
+	<Traits>
+		<Row TraitType="TRAIT_LEADER_YUNI_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_YUNI_ABILITY_NAME" Description="LOC_TRAIT_LEADER_YUNI_ABILITY_DESCRIPTION"/>
+	</Traits>
+	<LeaderTraits>
+		<Row LeaderType="LEADER_YUNI" TraitType="TRAIT_LEADER_YUNI_ABILITY"/>
+		<Row LeaderType="LEADER_YUNI" TraitType="TRAIT_LEADER_ATTRIBUTE_CULTURAL"/>
+		<Row LeaderType="LEADER_YUNI" TraitType="TRAIT_LEADER_ATTRIBUTE_SCIENTIFIC"/>
+		<Row LeaderType="LEADER_YUNI" TraitType="TRAIT_AQ_SCIENCE_VICTORY"/>
+		<Row LeaderType="LEADER_YUNI" TraitType="TRAIT_EX_SCIENCE_VICTORY"/>
+		<Row LeaderType="LEADER_YUNI" TraitType="TRAIT_MO_SCIENCE_VICTORY"/>
+	</LeaderTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_LEADER_YUNI_ABILITY" ModifierId="YUNI_MOD_SCIENCE_BUILDING_CULTURE"/>
+		<Row TraitType="TRAIT_LEADER_YUNI_ABILITY" ModifierId="YUNI_MOD_EXPLORED_TILE_SCIENCE"/>
+		<Row TraitType="TRAIT_LEADER_YUNI_ABILITY" ModifierId="YUNI_MOD_AGENDA_ROMANCE_OF_ARTS_SCHOLARS"/>
+	</TraitModifiers>
+	<TypeQuotes>
+		<Row Type="LEADER_YUNI" Quote="LOC_MAIN_CHAR_SELECT_LEADER_YUNI_ANY"/>
+	</TypeQuotes>
+</Database>

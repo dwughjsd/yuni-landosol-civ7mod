@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_UNLOCK"/>
+	</Kinds>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_4_PLACHTA_THEORIST" Kind="KIND_UNLOCK"/>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_8_PLACHTA_THEORIST" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_PLACHTA_THEORIST"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_PLACHTA_THEORIST"/>
+	</Unlocks>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_LEADER_IS_PLACHTA_THEORIST" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_PLACHTA_THEORIST" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_PLACHTA_THEORIST" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_LEADER_IS_PLACHTA_THEORIST" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_PLACHTA_THEORIST" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_PLACHTA_THEORIST" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_LEADER_IS_PLACHTA_THEORIST" Name="LeaderType" Value="LEADER_PLACHTA_THEORIST"/>
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_PLACHTA_THEORIST" Name="LeaderType" Value="LEADER_PLACHTA_THEORIST"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_PLACHTA_THEORIST" Name="LeaderType" Value="LEADER_PLACHTA_THEORIST"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_LEADER_IS_PLACHTA_THEORIST" RequirementId="REQ_LEADER_IS_PLACHTA_THEORIST"/>
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_PLACHTA_THEORIST" RequirementId="REQ_LEGEND_LEVEL_4_PLACHTA_THEORIST"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_PLACHTA_THEORIST" RequirementId="REQ_LEGEND_LEVEL_8_PLACHTA_THEORIST"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+	<!--
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ERDE_WIEGE" RequirementSetId="REQSET_LEADER_IS_PLACHTA_THEORIST" Description="LOC_UNLOCK_PLAY_AS_PLACHTA_THEORIST_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_PLACHTA_THEORIST_TOOLTIP"/>
+		-->
+	</UnlockRequirements>
+</Database>

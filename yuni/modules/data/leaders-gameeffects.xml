@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="YUNI_MOD_SCIENCE_BUILDING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">SCIENCE</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_YUNI_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_LEADER_YUNI_ABILITY_NAME</String>
+	</Modifier>
+	<Modifier id="YUNI_MOD_EXPLORED_TILE_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_EXPLORED_X_TILES">
+				<Argument name="Threshold">100</Argument>
+				<Argument name="Repeatable">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">50</Argument>
+	</Modifier>
+	<Modifier id="YUNI_MOD_AGENDA_ROMANCE_OF_ARTS_SCHOLARS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_DISTRICTS2</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_ALL</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_SMALL</Argument>
+		<Argument name="Arg1">HAPPINESS</Argument>
+		<Argument name="Arg2">GOLD</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_ALL</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_AMT_SMALL</Argument>
+		<Argument name="Arg3">CULTURE</Argument>
+		<Argument name="Arg4">SCIENCE</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

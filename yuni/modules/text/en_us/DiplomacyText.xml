@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_NAME">
+			<Text>Romance of Arts Scholars</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_DESC">
+			<Text>Likes Civilizations with both[icon:YIELD_SCIENCE] Science and[icon:YIELD_CULTURE] Culture Buildings in their Settlements. Dislikes those with both [icon:YIELD_HAPPINESS] Happiness and [icon:YIELD_GOLD] Gold Buildings in their Settlements.</Text>
+		</Row>
+	</EnglishText>
+</Database>

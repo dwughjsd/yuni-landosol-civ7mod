@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<!-- Antique Revived Buildings -->
+		<Row Tag="LOC_BUILDING_LIBRARY_EX_YUNI_NAME">
+			<Text>Yuni's Library</Text>
+		</Row>
+		<!-- Exploration Revived Buildings -->
+		<Row Tag="LOC_BUILDING_OBSERVATORY_MO_YUNI_NAME">
+			<Text>Yuni's Observatory</Text>
+		</Row>
+	</EnglishText>
+</Database>
+				
