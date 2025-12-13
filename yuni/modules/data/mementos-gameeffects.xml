@@ -7,19 +7,16 @@
         <Argument name="ConstructibleTag">SCIENCE</Argument>
         <Argument name="Tooltip">LOC_MEMENTO_YUNI_ROSETTA_NAME</Argument>
     </Modifier>
-    <Modifier id="MEMENTO_YUNI_YUNI_S_NOTEBOOK_MODIFIER" collection="COLLECTION_PLAYER_CONSTRUCTIBLES" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+    <Modifier id="MEMENTO_YUNI_YUNI_S_NOTEBOOK_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true">
         <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
-                <Argument name="Tag">CULTURE</Argument>
+            <Requirement type="REQUIREMENT_CITY_BUILT_TAGGED_CONSTRUCTIBLE">
+                <Argument name="Tags">CULTURE</Argument>
             </Requirement>
         </SubjectRequirements>
-        <Argument name="ModifierId">YUNI_S_NOTEBOOK_CULTURE_BUILDING_TECH_BOOST_ON_COMPLETE</Argument>
-    </Modifier>
-    <Modifier id="YUNI_S_NOTEBOOK_CULTURE_BUILDING_TECH_BOOST_ON_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" run-once="true" permanent="true">
         <Argument name="Amount">1</Argument>
         <Argument name="SystemType">SYSTEM_TECH</Argument>
-        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_ANY_UNLOCKED</Argument>
         <Argument name="BoostPercentage">50</Argument>
+        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_ANY_UNLOCKED</Argument>
     </Modifier>
     <Modifier id="MEMENTO_YUNI_PEN_AXE_REPLICA_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
         <Argument name="Tag">SCIENCE</Argument>
