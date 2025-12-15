@@ -23,6 +23,9 @@
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_RUSSIA" LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_YUNI_RUSSIA_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE"/>
 	</LeaderCivilizationBias>
 	<LeaderUnlocks>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_ABBASID" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_ABBASID_NAME" Description="LOC_CIVILIZATION_ABBASID_DESCRIPTION" Icon="CIVILIZATION_ABBASID"/>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_MEIJI" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_MEIJI_NAME" Description="LOC_CIVILIZATION_MEIJI_DESCRIPTION" Icon="CIVILIZATION_MEIJI"/>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_YUNI" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_RUSSIA" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_RUSSIA_NAME" Description="LOC_CIVILIZATION_RUSSIA_DESCRIPTION" Icon="CIVILIZATION_RUSSIA"/>
 	</LeaderUnlocks>
 	<Mementos>
 		<Row Type="MEMENTO_YUNI_ROSETTA" Name="LOC_MEMENTO_YUNI_ROSETTA_NAME" Description="LOC_MEMENTO_YUNI_ROSETTA_DESCRIPTION" FunctionalDescription="LOC_MEMENTO_YUNI_ROSETTA_FUNCTIONAL_DESCRIPTION" UnlockTitle="LOC_MEMENTO_YUNI_ROSETTA_UNLOCK_TITLE" Tag="Scientific"/>
