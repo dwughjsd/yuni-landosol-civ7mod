@@ -236,7 +236,7 @@ function createOrUpdateImageOverlay(container, options = {}) {
 			pointer-events: none;
 			opacity: ${isDiplomacy ? '1' : '1'};
 			transform: ${isDiplomacy ? (position === "left" ? 'translateX(-800vw) scale(1.8)' : position === "right" ? 'translateX(800vw) scale(1.8)' : 'translateY(100px) scale(1.8)') : 'scale(1)'};
-			transition: ${isDiplomacy ? 'transform 0.3s ease-out' : 'none'};
+			transition: ${isDiplomacy ? 'transform 0.3s ease-in-out' : 'none'};
 			visibility: visible;
 		`;
 
@@ -867,7 +867,7 @@ function tryRemoveDiplomacyImageOverlay(leaderID = null, position = "center", de
 			}
 
 			// 设置退出动画的transition（与进入动画时长一致：0.3s）
-			overlayBlock.style.transition = 'transform 0.3s ease-out';
+			overlayBlock.style.transition = 'transform 0.3s ease-in-out';
 
 			// 立即触发退出动画：从正常位置和大小移动到屏幕外并放大
 			// 左侧：移动到左侧屏幕外（translateX(-800vw)）并放大（scale(1.8)）
