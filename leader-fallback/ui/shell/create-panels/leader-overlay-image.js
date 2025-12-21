@@ -20,6 +20,8 @@ function getImageUrl(leaderID) {
 }
 
 // 获取容器元素（支持不同面板）
+// 注意：容器现在仅用于检测面板类型和验证，不再用于定位计算
+// 覆盖层使用fixed定位，直接添加到body中
 function getContainer(context) {
 	// 方法1: 通过 this.randomLeaderContent（GameCreationPanelBase 的属性）
 	let container = context?.randomLeaderContent;
@@ -125,7 +127,8 @@ function createOrUpdateImageOverlay(container, options = {}) {
 			className = "leader-overlay-image-block",
 			zIndex = -1, // 设置为负值，使图片显示在文本下方（模仿3D模型在文本下方的效果）
 			leaderID = null, // 领袖ID，用于获取图片路径
-			imageUrl = null // 直接指定图片URL（优先级高于leaderID）
+			imageUrl = null, // 直接指定图片URL（优先级高于leaderID）
+			panelType = null // 面板类型，用于判断是否需要更新背景图片
 		} = options;
 	
 	// 参数验证和清理：确保所有数值参数都是有效数字
@@ -142,20 +145,13 @@ function createOrUpdateImageOverlay(container, options = {}) {
 		finalImageUrl = DEFAULT_OVERLAY_IMAGE_URL;
 	}
 	
-	// 确保容器是相对定位（如果还没有的话）
-	const containerStyle = window.getComputedStyle(container);
-	if (containerStyle.position === "static") {
-		container.style.position = "relative";
-	}
-	
-	// 修复容器尺寸
-	fixContainerSize(container);
-	
+	// 容器仅用于查找和验证，不再用于定位计算
 	// 根据位置生成唯一的类名
 	const overlayClassName = `${className}${position !== "center" ? `-${position}` : ""}`;
 	
-	// 查找是否已存在覆盖层
-	let overlayBlock = container.querySelector(`.${overlayClassName}`);
+	// 查找是否已存在覆盖层（使用body或world容器，因为fixed定位不依赖容器）
+	const searchContainer = document.body;
+	let overlayBlock = searchContainer.querySelector(`.${overlayClassName}`);
 	
 	if (!overlayBlock) {
 		// 创建新的图片覆盖层
@@ -164,17 +160,15 @@ function createOrUpdateImageOverlay(container, options = {}) {
 		
 		let leftValue;
 		let widthValue;
-		let heightValue = "100%";
+		let heightValue = "100vh";
 		let bgPosition = "center center";
-		let positionType = "absolute";
-		let bgSize = "100% auto";
+		let positionType = "fixed";
+		let bgSize = "cover";
 		
 		const isDiplomacy = className.includes("diplomacy");
 		
 		if (isDiplomacy) {
-			// 外交特殊处理：fixed + vw 半屏
-			positionType = "fixed";
-			heightValue = "100vh";
+			// 外交界面：fixed + vw 半屏
 			// 计算偏移量（使用viewport宽度）
 			// 确保数值格式正确，避免CSS calc解析问题
 			const leftOffsetVw = safeLeftOffsetMultiplier * 50; // 50vw是半屏宽度
@@ -198,59 +192,45 @@ function createOrUpdateImageOverlay(container, options = {}) {
 				widthValue = "100vw";
 				bgPosition = "center center";
 			}
-			bgSize = "cover";  // 填满半屏
+			bgSize = "cover";  // 外交界面使用cover填满半屏
 		} else {
-			// 原有非外交逻辑
-			const containerRectInitial = container.getBoundingClientRect();
-			if (containerRectInitial.width === 0 || containerRectInitial.height === 0) {
-				// 容器尺寸无效，使用默认值
-				leftValue = "0px";
-				widthValue = "100%";
+			// Shell界面：fixed + vw 全屏（与外交界面统一实现方式）
+			// 计算偏移量（使用viewport宽度，基于全屏100vw）
+			// 正数 = 向左偏移，负数 = 向右偏移
+			const leftOffsetVw = safeLeftOffsetMultiplier * 100; // 基于全屏宽度
+			// 格式化数值，确保小数点后不超过3位，避免CSS解析问题
+			const formattedOffsetVw = parseFloat(leftOffsetVw.toFixed(3));
+			
+			if (position === "left") {
+				// 左侧：正数向左偏移，负数向右偏移
+				// 使用减法：减去正数向左，减去负数（即加上正数）向右
+				leftValue = `calc(0vw - ${formattedOffsetVw}vw)`;
+				widthValue = `${safeWidthMultiplier * 100}vw`;
+				bgPosition = "right center";
+			} else if (position === "right") {
+				// 右侧：正数向左偏移，负数向右偏移
+				// 使用加法：加上正数向右，加上负数（即减去正数）向左
+				leftValue = `calc(50vw + ${formattedOffsetVw}vw)`;
+				widthValue = `${safeWidthMultiplier * 100}vw`;
+				bgPosition = "left center";
 			} else {
-				if (position === "left") {
-					// 左侧：向左偏移，显示左侧部分
-					// 如果leftOffsetMultiplier是正数，表示向左偏移
-					if (safeLeftOffsetMultiplier > 0) {
-						leftValue = `-${containerRectInitial.width * safeLeftOffsetMultiplier}px`;
-					} else {
-						// 负数表示向右偏移
-						leftValue = `${containerRectInitial.width * Math.abs(safeLeftOffsetMultiplier)}px`;
-					}
-				} else if (position === "right") {
-					// 右侧：向右偏移，显示右侧部分
-					// 如果leftOffsetMultiplier是负数，表示向右偏移
-					if (safeLeftOffsetMultiplier < 0) {
-						leftValue = `${containerRectInitial.width * Math.abs(safeLeftOffsetMultiplier)}px`;
-					} else {
-						// 正数表示向左偏移，需要计算右侧位置
-						leftValue = `${containerRectInitial.width * (1 - safeLeftOffsetMultiplier)}px`;
-					}
-				} else {
-					// 居中：默认居中显示
-					leftValue = `-${containerRectInitial.width * safeLeftOffsetMultiplier}px`;
-				}
-				widthValue = `${containerRectInitial.width * safeWidthMultiplier}px`;
+				// 居中：从屏幕中心计算
+				// 中心位置是50vw，减去宽度的一半，再减去偏移量
+				// 正数向左偏移（减去正数），负数向右偏移（减去负数 = 加上正数）
+				const centerOffsetVw = safeWidthMultiplier * 50; // 宽度的一半
+				leftValue = `calc(50vw - ${centerOffsetVw}vw - ${formattedOffsetVw}vw)`;
+				widthValue = `${safeWidthMultiplier * 100}vw`;
+				bgPosition = "center center";
 			}
+			// Shell界面使用contain实现缩放而不是裁剪
+			bgSize = "contain";
 		}
 		
-		// 计算top值（向下偏移）和background-position
+		// 计算top值（统一使用vh单位）
 		let topValue = "0";
 		if (safeTopOffsetMultiplier !== 0) {
-			if (isDiplomacy) {
-				// 外交界面使用viewport高度（vh）计算偏移
-				topValue = `${100 * safeTopOffsetMultiplier}vh`;
-			} else {
-				// 其他界面使用容器高度计算偏移
-				const containerRect = container.getBoundingClientRect();
-				if (containerRect.height > 0) {
-					const topOffsetPx = containerRect.height * safeTopOffsetMultiplier;
-					topValue = `${topOffsetPx}px`;
-					// 调整background-position，向上移动图片以显示顶部
-					// 计算背景图片向上移动的百分比（负值表示向上）
-					const bgOffsetPercent = -(safeTopOffsetMultiplier * 100);
-					bgPosition = `center ${bgOffsetPercent}%`;
-				}
-			}
+			// 所有界面都使用viewport高度（vh）计算偏移
+			topValue = `${100 * safeTopOffsetMultiplier}vh`;
 		}
 		
 		// 验证图片URL格式
@@ -259,12 +239,7 @@ function createOrUpdateImageOverlay(container, options = {}) {
 			return null;
 		}
 		
-		// 对于非外交界面（shell scope），先隐藏元素，等位置计算完成后再显示
-		// 这样可以避免用户看到一瞬间位置错误的图片
-		const shouldHideInitially = !isDiplomacy;
-		// 淡入动画时长（毫秒）- 非常短暂，避免闪烁
-		const fadeInDuration = 15; // 0.15秒
-		
+		// 设置样式（fixed定位不需要等待容器布局）
 		overlayBlock.style.cssText = `
 			position: ${positionType};
 			top: ${topValue};
@@ -277,10 +252,10 @@ function createOrUpdateImageOverlay(container, options = {}) {
 			background-repeat: no-repeat;
 			z-index: ${zIndex};
 			pointer-events: none;
-			opacity: ${shouldHideInitially ? '0' : (isDiplomacy ? '1' : '1')};
+			opacity: ${isDiplomacy ? '1' : '1'};
 			transform: ${isDiplomacy ? (position === "left" ? 'translateX(-800vw) scale(1.8)' : position === "right" ? 'translateX(800vw) scale(1.8)' : 'translateY(100px) scale(1.8)') : 'scale(1)'};
-			transition: ${isDiplomacy ? 'transform 0.3s ease-out' : (shouldHideInitially ? `opacity ${fadeInDuration}ms ease-out` : 'none')};
-			visibility: ${shouldHideInitially ? 'hidden' : 'visible'};
+			transition: ${isDiplomacy ? 'transform 0.3s ease-out' : 'none'};
+			visibility: visible;
 		`;
 		
 		// 验证图片是否可以加载（仅用于外交界面，避免阻塞其他界面）
@@ -304,140 +279,17 @@ function createOrUpdateImageOverlay(container, options = {}) {
 			img.src = finalImageUrl;
 		}
 		
+		// 添加到body（fixed定位不依赖容器）
 		try {
-			container.appendChild(overlayBlock);
+			document.body.appendChild(overlayBlock);
 			// 验证是否成功添加
-			if (!overlayBlock.parentNode || overlayBlock.parentNode !== container) {
+			if (!overlayBlock.parentNode || overlayBlock.parentNode !== document.body) {
 				console.error(`[Leader Overlay Image] Overlay block appended but parent verification failed for leader ${leaderID || 'unknown'}`);
 			}
 		} catch (appendError) {
 			console.error(`[Leader Overlay Image] Failed to append overlay block for leader ${leaderID || 'unknown'}:`, appendError);
-			console.error(`[Leader Overlay Image] Container state:`, {
-				exists: !!container,
-				tagName: container?.tagName,
-				parentNode: container?.parentNode?.tagName,
-				documentBody: container === document.body
-			});
 			return null; // 返回null表示失败，但不影响其他领袖
 		}
-		
-		// 对于非外交界面，等待浏览器完成布局后再显示，避免闪烁
-		if (shouldHideInitially) {
-			// 使用双重 requestAnimationFrame 确保浏览器完成布局和绘制
-			requestAnimationFrame(() => {
-				requestAnimationFrame(() => {
-					// 再次验证容器尺寸，确保位置计算正确
-					if (!isDiplomacy) {
-						const containerRect = container.getBoundingClientRect();
-						if (containerRect.width > 0 && containerRect.height > 0) {
-							// 重新计算位置和尺寸（确保使用最新的容器尺寸）
-							if (position === "left") {
-								if (safeLeftOffsetMultiplier > 0) {
-									overlayBlock.style.left = `-${containerRect.width * safeLeftOffsetMultiplier}px`;
-								} else {
-									overlayBlock.style.left = `${containerRect.width * Math.abs(safeLeftOffsetMultiplier)}px`;
-								}
-							} else if (position === "right") {
-								if (safeLeftOffsetMultiplier < 0) {
-									overlayBlock.style.left = `${containerRect.width * Math.abs(safeLeftOffsetMultiplier)}px`;
-								} else {
-									overlayBlock.style.left = `${containerRect.width * (1 - safeLeftOffsetMultiplier)}px`;
-								}
-							} else {
-								overlayBlock.style.left = `-${containerRect.width * safeLeftOffsetMultiplier}px`;
-							}
-							overlayBlock.style.width = `${containerRect.width * safeWidthMultiplier}px`;
-							
-							// 更新top值（如果需要）
-							if (safeTopOffsetMultiplier !== 0) {
-								const topOffsetPx = containerRect.height * safeTopOffsetMultiplier;
-								overlayBlock.style.top = `${topOffsetPx}px`;
-								const bgOffsetPercent = -(safeTopOffsetMultiplier * 100);
-								overlayBlock.style.backgroundPosition = `center ${bgOffsetPercent}%`;
-							}
-						}
-					}
-					
-					// 先设置 visibility，确保元素在 DOM 中
-					overlayBlock.style.visibility = 'visible';
-					
-					// 使用 requestAnimationFrame 确保 transition 已应用，然后触发淡入动画
-					requestAnimationFrame(() => {
-						// 触发淡入动画（opacity 从 0 到 1，transition 会自动处理）
-						overlayBlock.style.opacity = '1';
-					});
-				});
-			});
-		}
-
-		// 添加窗口大小变化监听（使用防抖，避免频繁更新导致闪烁）
-		const resizeObserver = new ResizeObserver(() => {
-			if (overlayBlock && container && !isDiplomacy) {  // 只调整非外交
-				// 清除之前的定时器
-				if (overlayBlock._resizeTimeout) {
-					clearTimeout(overlayBlock._resizeTimeout);
-				}
-				
-				// 防抖：延迟更新，避免频繁调整
-				overlayBlock._resizeTimeout = setTimeout(() => {
-					const containerRect = container.getBoundingClientRect();
-					if (containerRect.width === 0 || containerRect.height === 0) {
-						return; // 容器尺寸无效，跳过更新
-					}
-					
-					// 在更新位置时，如果元素可见，先短暂隐藏以避免闪烁
-					const isVisible = overlayBlock.style.opacity !== '0' && overlayBlock.style.visibility !== 'hidden';
-					if (isVisible) {
-						// 使用 will-change 提示浏览器优化
-						overlayBlock.style.willChange = 'transform, opacity';
-					}
-					
-					overlayBlock.style.width = `${containerRect.width * safeWidthMultiplier}px`;
-					
-					// 根据位置重新计算left值
-					if (position === "left") {
-						if (safeLeftOffsetMultiplier > 0) {
-							overlayBlock.style.left = `-${containerRect.width * safeLeftOffsetMultiplier}px`;
-						} else {
-							overlayBlock.style.left = `${containerRect.width * Math.abs(safeLeftOffsetMultiplier)}px`;
-						}
-					} else if (position === "right") {
-						if (safeLeftOffsetMultiplier < 0) {
-							overlayBlock.style.left = `${containerRect.width * Math.abs(safeLeftOffsetMultiplier)}px`;
-						} else {
-							overlayBlock.style.left = `${containerRect.width * (1 - safeLeftOffsetMultiplier)}px`;
-						}
-					} else {
-						overlayBlock.style.left = `-${containerRect.width * safeLeftOffsetMultiplier}px`;
-					}
-					
-					// 更新top值（向下偏移）和background-position
-					if (safeTopOffsetMultiplier !== 0) {
-						const topOffsetPx = containerRect.height * safeTopOffsetMultiplier;
-						overlayBlock.style.top = `${topOffsetPx}px`;
-						// 调整background-position，向上移动图片以显示顶部
-						const bgOffsetPercent = -(safeTopOffsetMultiplier * 100);
-						overlayBlock.style.backgroundPosition = `center ${bgOffsetPercent}%`;
-					} else {
-						overlayBlock.style.top = "0";
-						overlayBlock.style.backgroundPosition = "center center";
-					}
-					overlayBlock.style.height = "100%";
-					
-					// 清除 will-change（如果设置了）
-					if (isVisible) {
-						requestAnimationFrame(() => {
-							overlayBlock.style.willChange = 'auto';
-						});
-					}
-				}, 16); // 约一帧的时间（60fps）
-			}
-		});
-		resizeObserver.observe(container);
-		
-		// 将 observer 存储在覆盖层上，以便后续清理
-		overlayBlock._resizeObserver = resizeObserver;
-		// _resizeTimeout 会在 ResizeObserver 回调中动态创建和更新
 		
 		// 对于外交覆盖层，延迟触发动画
 		if (isDiplomacy) {
@@ -457,46 +309,27 @@ function createOrUpdateImageOverlay(container, options = {}) {
 	} else {
 		// 更新现有覆盖层的位置和大小
 		try {
-			if (!className.includes("diplomacy")) {  // 只更新非外交
-				// 先隐藏元素，避免更新时出现闪烁
-				const wasVisible = overlayBlock.style.opacity !== '0' && overlayBlock.style.visibility !== 'hidden';
-				const fadeInDuration = 15; // 0.15秒淡入动画
-				
-				if (wasVisible) {
-					// 设置淡入动画 transition
-					overlayBlock.style.transition = `opacity ${fadeInDuration}ms ease-out`;
-					overlayBlock.style.opacity = '0';
-					overlayBlock.style.visibility = 'hidden';
-				}
-				
-				// 更新位置和尺寸
-				updateOverlayPositionAndSize(overlayBlock, container, {
-					position,
-					widthMultiplier,
-					leftOffsetMultiplier,
-					topOffsetMultiplier
-				});
-				
-				// 如果之前是可见的，等待布局完成后再显示（带淡入动画）
-				if (wasVisible) {
-					requestAnimationFrame(() => {
-						requestAnimationFrame(() => {
-							// 先设置 visibility
-							overlayBlock.style.visibility = 'visible';
-							// 然后触发淡入动画
-							requestAnimationFrame(() => {
-								overlayBlock.style.opacity = '1';
-							});
-						});
-					});
-				}
-			}
+			// 更新位置和尺寸（使用viewport单位，不需要容器）
+			updateOverlayPositionAndSize(overlayBlock, {
+				position,
+				widthMultiplier: safeWidthMultiplier,
+				leftOffsetMultiplier: safeLeftOffsetMultiplier,
+				topOffsetMultiplier: safeTopOffsetMultiplier,
+				isDiplomacy
+			});
 
-			// 检查并更新背景图片（如果需要）
-			const currentBackgroundImage = overlayBlock.style.backgroundImage;
-			const newBackgroundImage = `url("${finalImageUrl}")`;
-			if (currentBackgroundImage !== newBackgroundImage) {
-				overlayBlock.style.backgroundImage = newBackgroundImage;
+			// 对于setup-panels（age-select, civ-select, game-setup），不更新背景图片
+			// 只更新位置和大小，保持原有图片
+			// 只有在leader-select界面或图片URL确实改变时才更新背景图片
+			const isSetupPanel = panelType === "age-select" || panelType === "civ-select" || panelType === "game-setup" || panelType === "setup-panels";
+			
+			if (!isSetupPanel) {
+				// 检查并更新背景图片（如果需要）
+				const currentBackgroundImage = overlayBlock.style.backgroundImage;
+				const newBackgroundImage = `url("${finalImageUrl}")`;
+				if (currentBackgroundImage !== newBackgroundImage) {
+					overlayBlock.style.backgroundImage = newBackgroundImage;
+				}
 			}
 		} catch (updateError) {
 			console.warn(`[Leader Overlay Image] Failed to update overlay for leader ${leaderID || 'unknown'}:`, updateError);
@@ -511,15 +344,9 @@ function createOrUpdateImageOverlay(container, options = {}) {
 	}
 }
 
-// 更新覆盖层的位置和大小（保持图片长宽比）
-function updateOverlayPositionAndSize(overlayBlock, container, options = {}) {
-	if (!overlayBlock || !container) {
-		return;
-	}
-	
-	const className = overlayBlock.className;
-	if (className.includes("diplomacy")) {
-		// diplomacy覆盖层固定，不更新（vw自动）
+// 更新覆盖层的位置和大小（使用viewport单位）
+function updateOverlayPositionAndSize(overlayBlock, options = {}) {
+	if (!overlayBlock) {
 		return;
 	}
 	
@@ -527,7 +354,8 @@ function updateOverlayPositionAndSize(overlayBlock, container, options = {}) {
 		position = "center",
 		widthMultiplier = 3.5,
 		leftOffsetMultiplier = -0.5,
-		topOffsetMultiplier = 0
+		topOffsetMultiplier = 0,
+		isDiplomacy = false
 	} = options;
 	
 	// 参数验证和清理：确保所有数值参数都是有效数字
@@ -535,52 +363,66 @@ function updateOverlayPositionAndSize(overlayBlock, container, options = {}) {
 	const safeLeftOffsetMultiplier = (typeof leftOffsetMultiplier === "number" && !isNaN(leftOffsetMultiplier) && isFinite(leftOffsetMultiplier)) ? leftOffsetMultiplier : -0.5;
 	const safeTopOffsetMultiplier = (typeof topOffsetMultiplier === "number" && !isNaN(topOffsetMultiplier) && isFinite(topOffsetMultiplier)) ? topOffsetMultiplier : 0;
 	
-	const containerRect = container.getBoundingClientRect();
-	
-	// 检查容器尺寸是否有效
-	if (containerRect.width === 0 || containerRect.height === 0) {
-		return; // 容器尺寸无效，跳过更新
-	}
-	
-	// 更新宽度（保持长宽比，使用 background-size: 100% auto）
-	overlayBlock.style.width = `${containerRect.width * safeWidthMultiplier}px`;
-	overlayBlock.style.height = "100%";
-	
-	// 保持图片长宽比：background-size 使用 100% auto（宽度填满，高度自动）
-	// 这样图片会保持原始长宽比
-	overlayBlock.style.backgroundSize = "100% auto";
-	
-	// 根据位置重新计算left值
+	// 使用viewport单位更新位置和尺寸
 	let leftValue;
-	if (position === "left") {
-		if (safeLeftOffsetMultiplier > 0) {
-			leftValue = `-${containerRect.width * safeLeftOffsetMultiplier}px`;
+	let widthValue;
+	let bgPosition = "center center";
+	
+	if (isDiplomacy) {
+		// 外交界面：fixed + vw 半屏
+		const leftOffsetVw = safeLeftOffsetMultiplier * 50; // 50vw是半屏宽度
+		const formattedOffsetVw = parseFloat(leftOffsetVw.toFixed(3));
+		if (position === "left") {
+			leftValue = `calc(0vw - ${Math.abs(formattedOffsetVw)}vw)`;
+			widthValue = "50vw";
+			bgPosition = "right center";
+		} else if (position === "right") {
+			leftValue = `calc(50vw + ${formattedOffsetVw}vw)`;
+			widthValue = "50vw";
+			bgPosition = "left center";
 		} else {
-			leftValue = `${containerRect.width * Math.abs(safeLeftOffsetMultiplier)}px`;
-		}
-	} else if (position === "right") {
-		if (safeLeftOffsetMultiplier < 0) {
-			leftValue = `${containerRect.width * Math.abs(safeLeftOffsetMultiplier)}px`;
-		} else {
-			leftValue = `${containerRect.width * (1 - safeLeftOffsetMultiplier)}px`;
+			leftValue = "0vw";
+			widthValue = "100vw";
+			bgPosition = "center center";
 		}
 	} else {
-		// 居中
-		leftValue = `-${containerRect.width * safeLeftOffsetMultiplier}px`;
+		// Shell界面：fixed + vw 全屏
+		// 正数 = 向左偏移，负数 = 向右偏移
+		const leftOffsetVw = safeLeftOffsetMultiplier * 100; // 基于全屏宽度
+		const formattedOffsetVw = parseFloat(leftOffsetVw.toFixed(3));
+		
+		if (position === "left") {
+			// 左侧：正数向左偏移，负数向右偏移
+			leftValue = `calc(0vw - ${formattedOffsetVw}vw)`;
+			widthValue = `${safeWidthMultiplier * 100}vw`;
+			bgPosition = "right center";
+		} else if (position === "right") {
+			// 右侧：正数向左偏移，负数向右偏移
+			leftValue = `calc(50vw + ${formattedOffsetVw}vw)`;
+			widthValue = `${safeWidthMultiplier * 100}vw`;
+			bgPosition = "left center";
+		} else {
+			// 居中：从屏幕中心计算
+			// 正数向左偏移（减去正数），负数向右偏移（减去负数 = 加上正数）
+			const centerOffsetVw = safeWidthMultiplier * 50; // 宽度的一半
+			leftValue = `calc(50vw - ${centerOffsetVw}vw - ${formattedOffsetVw}vw)`;
+			widthValue = `${safeWidthMultiplier * 100}vw`;
+			bgPosition = "center center";
+		}
 	}
 	
 	overlayBlock.style.left = leftValue;
+	overlayBlock.style.width = widthValue;
+	overlayBlock.style.height = "100vh";
+	overlayBlock.style.backgroundPosition = bgPosition;
+	// Shell界面使用contain实现缩放而不是裁剪，外交界面使用cover
+	overlayBlock.style.backgroundSize = isDiplomacy ? "cover" : "contain";
 	
-	// 更新top值（向下偏移）和background-position
+	// 更新top值（使用vh单位）
 	if (safeTopOffsetMultiplier !== 0) {
-		const topOffsetPx = containerRect.height * safeTopOffsetMultiplier;
-		overlayBlock.style.top = `${topOffsetPx}px`;
-		// 调整background-position，向上移动图片以显示顶部
-		const bgOffsetPercent = -(safeTopOffsetMultiplier * 100);
-		overlayBlock.style.backgroundPosition = `center ${bgOffsetPercent}%`;
+		overlayBlock.style.top = `${100 * safeTopOffsetMultiplier}vh`;
 	} else {
 		overlayBlock.style.top = "0";
-		overlayBlock.style.backgroundPosition = "center center";
 	}
 }
 
@@ -589,46 +431,24 @@ function tryCreateImageOverlay(context, delay = 300, leaderID = null, panelType 
 	try {
 		const tryCreateBlock = (attempt = 0) => {
 			try {
+				// 容器仅用于检测面板类型，不再用于定位
 				const container = getContainer(context);
 				
-				if (container) {
-					// 检查容器是否有有效尺寸
-					const rect = container.getBoundingClientRect();
-					const computedStyle = window.getComputedStyle(container);
-					
-					// 如果容器宽度为0，尝试修复或等待
-					if (rect.width === 0 || rect.height === 0) {
-						try {
-							fixContainerSize(container);
-						} catch (fixError) {
-							console.warn(`[Leader Overlay Image] Failed to fix container size:`, fixError);
-						}
-						
-						// 如果容器在 DOM 中但尺寸仍为0，可能是隐藏的
-						if (computedStyle.display === "none" || computedStyle.visibility === "hidden") {
-							// Container is hidden
-						}
-
-						if (attempt < 10) {
-							setTimeout(() => tryCreateBlock(attempt + 1), 200);
-						} else {
-							// 即使尺寸为0也尝试创建，让覆盖层自己适应
-							createImageOverlayWithConfig(container, leaderID, panelType);
-						}
-					} else {
-						// 容器有有效尺寸，创建或更新图片覆盖层
-						createImageOverlayWithConfig(container, leaderID, panelType);
-					}
-				} else if (attempt < 10) {
-					// 如果找不到容器，再等待一下
+				if (container || attempt >= 5) {
+					// 即使找不到容器也尝试创建（fixed定位不依赖容器）
+					// 容器主要用于检测面板类型
+					createImageOverlayWithConfig(container, leaderID, panelType);
+				} else if (attempt < 5) {
+					// 如果找不到容器，再等待一下（减少重试次数，因为不再依赖容器）
 					setTimeout(() => tryCreateBlock(attempt + 1), 200);
 				} else {
-					console.warn(`[Leader Overlay Image] Container not found after ${attempt} attempts for leader ${leaderID || 'unknown'}`);
+					console.warn(`[Leader Overlay Image] Container not found after ${attempt} attempts for leader ${leaderID || 'unknown'}, creating overlay anyway`);
+					createImageOverlayWithConfig(null, leaderID, panelType);
 				}
 			} catch (error) {
 				console.error(`[Leader Overlay Image] Error in tryCreateBlock attempt ${attempt} for leader ${leaderID || 'unknown'}:`, error);
 				// 如果还有重试机会，继续重试
-				if (attempt < 10) {
+				if (attempt < 5) {
 					setTimeout(() => tryCreateBlock(attempt + 1), 200);
 				}
 			}
@@ -675,6 +495,11 @@ function createImageOverlayWithConfig(container, leaderID, panelType = null) {
 				console.warn(`[Leader Overlay Image] Failed to get display config for leader ${leaderID}:`, configError);
 			}
 			options.leaderID = leaderID;
+		}
+		
+		// 传递panelType，用于判断是否需要更新背景图片
+		if (panelType) {
+			options.panelType = panelType;
 		}
 		
 		const result = createOrUpdateImageOverlay(container, options);
@@ -727,46 +552,52 @@ function adjustOverlayForPanel(leaderID, panelType = null) {
 	
 	const containers = Array.from(containerSet);
 	
-	// 查找并更新覆盖层（只处理第一个找到的，避免重复）
+	// 查找并更新覆盖层（覆盖层现在在body中，使用fixed定位）
+	// 对于setup-panels（age-select, civ-select, game-setup），只更新位置和大小，不重新加载图片
 	let foundOverlay = false;
-	const processedOverlays = new Set(); // 跟踪已处理的覆盖层，避免重复处理
 	
-	for (const container of containers) {
-		if (foundOverlay) break; // 找到后立即退出
+	// 使用更安全的方式查找覆盖层：查找所有可能的类名变体
+	const possibleClassNames = [
+		"leader-overlay-image-block",
+		"leader-overlay-image-block-center",
+		"leader-overlay-image-block-left",
+		"leader-overlay-image-block-right"
+	];
+	
+	for (const className of possibleClassNames) {
+		if (foundOverlay) break;
 		
-		// 使用更安全的方式查找覆盖层：查找所有可能的类名变体
-		const possibleClassNames = [
-			"leader-overlay-image-block",
-			"leader-overlay-image-block-center",
-			"leader-overlay-image-block-left",
-			"leader-overlay-image-block-right"
-		];
-		
-		for (const className of possibleClassNames) {
-			if (foundOverlay) break;
-			
-				try {
-				const overlayBlocks = container.querySelectorAll(`.${className}`);
-				for (const overlayBlock of overlayBlocks) {
-					// 避免重复处理同一个覆盖层
-					if (processedOverlays.has(overlayBlock)) {
-						continue;
-					}
-					
-					updateOverlayPositionAndSize(overlayBlock, container, displayConfig);
-					processedOverlays.add(overlayBlock);
-					foundOverlay = true;
-					// 只输出一次日志
-					break; // 找到第一个后立即退出
+		try {
+			const overlayBlocks = document.body.querySelectorAll(`.${className}`);
+			for (const overlayBlock of overlayBlocks) {
+				// 检查是否为shell界面的覆盖层（不是外交界面）
+				if (overlayBlock.className.includes("diplomacy")) {
+					continue;
 				}
-			} catch (error) {
-				// Error querying selector
+				
+				// 只更新位置和大小，不重新加载图片（不更新backgroundImage）
+				updateOverlayPositionAndSize(overlayBlock, {
+					position: displayConfig.position,
+					widthMultiplier: displayConfig.widthMultiplier,
+					leftOffsetMultiplier: displayConfig.leftOffsetMultiplier,
+					topOffsetMultiplier: displayConfig.topOffsetMultiplier,
+					isDiplomacy: false
+				});
+				foundOverlay = true;
+				break; // 找到第一个后立即退出
 			}
+		} catch (error) {
+			// Error querying selector
 		}
 	}
 	
-	// 如果没有找到现有覆盖层，尝试创建新的
-	if (!foundOverlay) {
+	// 对于setup-panels（age-select, civ-select, game-setup），如果找不到现有覆盖层，也不创建新的
+	// 因为这些界面应该从leader-select界面继承覆盖层，只需要调整大小
+	// 只有在leader-select界面才创建新的覆盖层
+	const isSetupPanel = panelType === "age-select" || panelType === "civ-select" || panelType === "game-setup" || panelType === "setup-panels";
+	
+	if (!foundOverlay && !isSetupPanel) {
+		// 只有在非setup-panels界面且找不到现有覆盖层时，才尝试创建新的
 		// 尝试找到当前活动的面板上下文（分别查找，避免复杂选择器）
 		let activePanel = null;
 		const leaderPanel = document.querySelector("leader-select-panel");
@@ -800,49 +631,31 @@ function adjustOverlayForPanel(leaderID, panelType = null) {
 // 尝试移除图片覆盖层
 function tryRemoveImageOverlay(context, delay = 0, position = "center") {
 	try {
-		const tryRemoveBlock = (attempt = 0) => {
+		const tryRemoveBlock = () => {
 			try {
-				const container = getContainer(context);
-				
-				if (container) {
-					const overlayClassName = `leader-overlay-image-block${position !== "center" ? `-${position}` : ""}`;
-					const overlayBlock = container.querySelector(`.${overlayClassName}`);
-					if (overlayBlock) {
-						// 清理 ResizeObserver 和定时器
-						try {
-							if (overlayBlock._resizeTimeout) {
-								clearTimeout(overlayBlock._resizeTimeout);
-								overlayBlock._resizeTimeout = null;
-							}
-							if (overlayBlock._resizeObserver) {
-								overlayBlock._resizeObserver.disconnect();
-							}
-						} catch (observerError) {
-							console.warn(`[Leader Overlay Image] Failed to disconnect ResizeObserver:`, observerError);
-						}
+				// 覆盖层现在在body中（fixed定位）
+				const overlayClassName = `leader-overlay-image-block${position !== "center" ? `-${position}` : ""}`;
+				const overlayBlock = document.body.querySelector(`.${overlayClassName}`);
+				if (overlayBlock) {
+					// 检查是否为shell界面的覆盖层（不是外交界面）
+					if (!overlayBlock.className.includes("diplomacy")) {
 						try {
 							overlayBlock.remove();
 						} catch (removeError) {
 							console.warn(`[Leader Overlay Image] Failed to remove overlay block:`, removeError);
 						}
 					}
-				} else if (attempt < 3) {
-					setTimeout(() => tryRemoveBlock(attempt + 1), 50);
 				}
 			} catch (error) {
-				console.warn(`[Leader Overlay Image] Error in tryRemoveBlock attempt ${attempt}:`, error);
-				// 如果还有重试机会，继续重试
-				if (attempt < 3) {
-					setTimeout(() => tryRemoveBlock(attempt + 1), 50);
-				}
+				console.warn(`[Leader Overlay Image] Error in tryRemoveBlock:`, error);
 			}
 		};
 		
-		// 延迟一点确保容器已存在（如果delay为0则立即执行）
+		// 延迟一点（如果delay为0则立即执行）
 		if (delay > 0) {
-			setTimeout(() => tryRemoveBlock(0), delay);
+			setTimeout(() => tryRemoveBlock(), delay);
 		} else {
-			tryRemoveBlock(0);
+			tryRemoveBlock();
 		}
 	} catch (error) {
 		console.error(`[Leader Overlay Image] Error in tryRemoveImageOverlay:`, error);
@@ -1108,7 +921,7 @@ function tryRemoveDiplomacyImageOverlay(leaderID = null, position = "center", de
 
 // 尝试创建主菜单的图片覆盖层
 function tryCreateMainMenuImageOverlay(leaderID, delay = 300) {
-	const shouldShowOverlay = leaderID === "LEADER_YUNI";
+	const shouldShowOverlay = leaderID === "LEADER_CONFUCIUS";
 	if (!shouldShowOverlay) {
 		return;
 	}

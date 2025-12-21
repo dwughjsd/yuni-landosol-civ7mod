@@ -55,7 +55,8 @@ async function overrideShowLeaderModels() {
 				// 对于图片领袖，我们需要：
 				// 1. 激活相机（保持界面一致性）
 				// 2. 清理之前的3D模型
-				// 3. 不加载新的3D模型
+				// 3. 加载底座（但不加载领袖3D模型）
+				// 4. 图片覆盖层会在 swapLeaderInfo 中处理
 				
 				this.isVoPlaying = false;
 				this.activateLeaderSelectCamera();
@@ -66,15 +67,40 @@ async function overrideShowLeaderModels() {
 				}
 				
 				this.isLeaderPicked = false;
+				this.leader3dMarker = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
 				this.currentLeaderAssetName = leaderId;
-				
-				// 清理模型组
 				this.leaderSelectModelGroup?.clear();
 				this.leaderPedestalModelGroup?.clear();
 				this.leader3DModel = null;
 				this._isRandomLeader = false;
 				
-				// 不加载3D模型，直接返回
+				// 加载底座（参照原始代码）
+				const isSmallAspectRatio = this.isSmallAspectRatio();
+				// 通过构造函数访问类的静态属性
+				const LeaderSelectModelManagerClass = this.constructor;
+				const pedestalPosition = isSmallAspectRatio 
+					? LeaderSelectModelManagerClass.PEDESTAL_CHOOSER_POSITION_SMALL_ASPECT_RATIO 
+					: LeaderSelectModelManagerClass.PEDESTAL_CHOOSER_POSITION;
+				
+				// 加载光照场景（如果需要）
+				if (this.leaderSelectModelGroup) {
+					this.leaderSelectModelGroup.addModelAtPos(
+						"LEADER_LIGHTING_SCENE_CHAR_SELECT_GAME_ASSET",
+						{ x: 0, y: 0, z: 0 },
+						{ angle: 0 }
+					);
+				}
+				
+				// 加载底座模型
+				if (this.leaderPedestalModelGroup) {
+					this.pedestal3DModel = this.leaderPedestalModelGroup.addModelAtPos(
+						"LEADER_SELECTION_PEDESTAL",
+						pedestalPosition,
+						{ angle: 120, scale: 0.9 }
+					);
+				}
+				
+				// 不加载领袖3D模型，直接返回
 				// 图片覆盖层会在 swapLeaderInfo 中处理
 				return;
 			}
@@ -120,20 +146,51 @@ async function overridePickLeader() {
 				
 				// 对于图片领袖：
 				// 1. 标记为已选择
-				// 2. 清理3D模型
-				// 3. 跳过动画序列
-				// 4. 处理相机切换（如果需要）
+				// 2. 清理领袖3D模型（但保留底座）
+				// 3. 更新底座位置和缩放（参照原始代码的pickLeader逻辑）
+				// 4. 跳过动画序列
+				// 5. 处理相机切换（如果需要）
 				
 				this.isLeaderPicked = true;
 				
-				// 清理模型组
+				const isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
+				if (this.isVoPlaying && performance.now() - this.sequenceStartTime < this.SEQUENCE_DEBOUNCE_DURATION) {
+					console.warn(
+						"Leader Model Manager: The leader picked sequence was triggered immediately after it was already triggered. requests to trigger it within the debounce duration will be ignored"
+					);
+					return;
+				}
+				this.sequenceStartTime = performance.now();
+				
+				// 清理领袖模型组（但不清理底座）
 				this.leaderSelectModelGroup?.clear();
-				this.leaderPedestalModelGroup?.clear();
 				this.leader3DModel = null;
+				
+				// 更新底座位置和缩放（参照原始代码）
+				const isSmallAspectRatio = this.isSmallAspectRatio();
+				// 通过构造函数访问类的静态属性
+				const LeaderSelectModelManagerClass = this.constructor;
+				const pedestalPosition = isSmallAspectRatio 
+					? LeaderSelectModelManagerClass.PEDESTAL_POSITION_SMALL_ASPECT_RATIO 
+					: LeaderSelectModelManagerClass.PEDESTAL_POSITION;
+				const pedestalScale = isSmallAspectRatio 
+					? LeaderSelectModelManagerClass.PEDESTAL_SCALE_SMALL_ASPECT_RATIO 
+					: LeaderSelectModelManagerClass.PEDESTAL_SCALE;
+				
+				// 如果底座模型组存在，更新底座位置和缩放
+				if (this.leaderPedestalModelGroup) {
+					// 先清理旧的底座
+					this.leaderPedestalModelGroup.clear();
+					// 重新加载底座（使用pickLeader时的位置和缩放）
+					this.pedestal3DModel = this.leaderPedestalModelGroup.addModelAtPos(
+						"LEADER_SELECTION_PEDESTAL",
+						pedestalPosition,
+						pedestalScale
+					);
+				}
 				
 				// 对于图片领袖，不需要动画序列
 				// 但可能需要处理相机切换
-				const isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
 				if (!isMobileViewExperience) {
 					// 可以保持当前相机或切换到确认视图的相机
 					// 暂时保持当前相机

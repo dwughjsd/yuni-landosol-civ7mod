@@ -8,36 +8,19 @@
 const IMAGE_LEADER_PREFIX = "LEADER_"; // 暂时使用所有LEADER_前缀作为测试，后续可以改为特定前缀如 "LEADER_CUSTOM_"
 
 // 面板特定的显示配置（不同面板中模型位置和大小不同）
+// 注意：age-select、civ-select、game-setup 会自动映射到 setup-panels（见 getImageDisplayConfig 函数）
 const PANEL_DISPLAY_CONFIGS = {
 	"leader-select": {
-		widthMultiplier: 3.5,
-		leftOffsetMultiplier: 0.5,  // 向左偏移二分之一距离
+		widthMultiplier: 0.5,
+		leftOffsetMultiplier: -0.5,  // 左对齐时，0表示图片左边缘在屏幕左边缘
 		topOffsetMultiplier: 0,  // 无垂直偏移（默认值）
-		position: "center"
+		position: "left"  // 左对齐
 	},
 	"setup-panels": {
-		widthMultiplier: 4.75,  // 时代、文明和游戏设置选择面板中模型更大且在中间（统一配置）
-		leftOffsetMultiplier: 1.25,  // 向左偏移
-		topOffsetMultiplier: 0.05,  
-		position: "center"  
-	},
-	"age-select": {
-		widthMultiplier: 4.75,  // 向后兼容，映射到 setup-panels
-		leftOffsetMultiplier: 1.25,
-		topOffsetMultiplier: 0.05,  
-		position: "center"  
-	},
-	"civ-select": {
-		widthMultiplier: 4.75,  // 向后兼容，映射到 setup-panels
-		leftOffsetMultiplier: 1.25,
-		topOffsetMultiplier: 0.05,  
-		position: "center"  
-	},
-	"game-setup": {
-		widthMultiplier: 4.75,  // 向后兼容，映射到 setup-panels
-		leftOffsetMultiplier: 1.25,
-		topOffsetMultiplier: 0.05, 
-		position: "center"
+		widthMultiplier: 0.6,  // 时代、文明和游戏设置选择面板中模型更大且在中间（统一配置）
+		leftOffsetMultiplier: -0.5,  // 左对齐时，0表示图片左边缘在屏幕左边缘
+		topOffsetMultiplier: 0,  
+		position: "left"  // 左对齐
 	},
 	"diplomacy-left": {
 		widthMultiplier: 2.75,  // 外交界面左侧
