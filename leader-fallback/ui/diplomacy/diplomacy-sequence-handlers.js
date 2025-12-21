@@ -421,16 +421,20 @@ function overrideShowLeadersFirstMeet(instance, classRef) {
 		this.simpleLeaderPopUpCameraAnimation(false, this.FIRST_MEET_DELAY);
 
 		// 对图片领袖延迟显示覆盖层（跳过清理，避免清除已加载的3D模型）
+		// 使用与相机动画相同的延迟，确保与旗帜同步出现
+		// 相机动画在 FIRST_MEET_DELAY 秒后开始，旗帜也在此时开始动画
+		// 图片领袖应该在相机动画开始后 300ms 显示，与其他场景保持一致
 		const firstMeetDelay = this.FIRST_MEET_DELAY || 0.3;
+		const imageLeaderDelay = (firstMeetDelay * 1000) + 300; // 相机动画延迟 + 300ms，与其他场景一致
 		if (isImg1) {
 			setTimeout(() => {
 				safeHandleImageLeaderDisplay(leaderID1, "left", this, null, true);
-			}, firstMeetDelay * 1000);
+			}, imageLeaderDelay);
 		}
 		if (isImg2) {
 			setTimeout(() => {
 				safeHandleImageLeaderDisplay(leaderID2, "right", this, null, true);
-			}, firstMeetDelay * 1000);
+			}, imageLeaderDelay);
 		}
 
 		this.beginFirstMeetSequence();
@@ -473,6 +477,9 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 
 		// 至少有一侧是图片领袖，严格按照原始方法但跳过图片领袖的3D加载
 		this.clear();
+
+		// 记录开始时间，用于计算入场动画完成时间
+		const declareWarStartTime = Date.now();
 
 		const p1ColorPrimary = UI.Player.getPrimaryColorValueAsHex(playerID1);
 		const p1ColorSecondary = UI.Player.getSecondaryColorValueAsHex(playerID1);
@@ -731,8 +738,21 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 							// 如果两侧都是图片领袖，直接完成序列（不需要播放任何3D动画）
 							if (!savedHasLeft3D && !savedHasRight3D) {
 								// 两侧都是图片领袖，直接完成序列
-								this.doSequenceSharedAdvance();
-								this.leaderSequenceStepID = 0;
+								// 等待入场动画完成后再停留3秒，然后触发缩放动画
+								// 入场动画总时长：300ms（延迟创建）+ 10ms（延迟触发）+ 360ms（动画时长）= 670ms
+								// 停留时间：3000ms
+								// 总等待时间：670ms + 3000ms = 3670ms
+								const elapsedTime = Date.now() - declareWarStartTime;
+								const remainingTime = Math.max(0, 3670 - elapsedTime);
+								setTimeout(() => {
+									// 直接触发图片覆盖层的缩放动画
+									zoomImageOverlays(["left", "right"], 1.1, 1.1);
+									// 触发拉近动画效果
+									this.startDWCameraAnimations();
+									this.doSequenceSharedAdvance();
+									this.leaderSequenceStepID = 0;
+								}, remainingTime);
+								return; // 提前返回，避免执行后续代码
 							}
 							// 恢复原始方法，以便后续正常处理
 							this.advanceDeclareWarPlayerSequence = originalAdvanceDeclareWarPlayerSequence;
@@ -783,7 +803,22 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 							// 如果两侧都是图片领袖，直接完成序列（不需要进入 step 3）
 							if (!savedHasLeft3D && !savedHasRight3D) {
 								// 两侧都是图片领袖，直接完成序列
-								this.leaderSequenceStepID = 0;
+								// 等待入场动画完成后再停留3秒，然后触发缩放动画
+								// 入场动画总时长：300ms（延迟创建）+ 10ms（延迟触发）+ 360ms（动画时长）= 670ms
+								// 停留时间：3000ms
+								// 总等待时间：670ms + 3000ms = 3670ms
+								const elapsedTime = Date.now() - declareWarStartTime;
+								const remainingTime = Math.max(0, 3670 - elapsedTime);
+								setTimeout(() => {
+									// 直接触发图片覆盖层的缩放动画
+									zoomImageOverlays(["left", "right"], 1.1, 1.1);
+									// 触发拉近动画效果
+									this.startDWCameraAnimations();
+									this.leaderSequenceStepID = 0;
+								}, remainingTime);
+								// 恢复原始方法，以便后续正常处理
+								this.advanceDeclareWarPlayerSequence = originalAdvanceDeclareWarPlayerSequence;
+								return; // 提前返回，避免执行后续代码
 							} else {
 								this.leaderSequenceStepID = 3;
 							}
