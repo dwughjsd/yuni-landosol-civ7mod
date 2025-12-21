@@ -32,6 +32,9 @@
 		<Criteria id="always">
 			<AlwaysMet></AlwaysMet>
 		</Criteria>
+		<Criteria id="leader-fallback">
+			<ModInUse>leader-fallback</ModInUse>
+		</Criteria>
 	</ActionCriteria>
 	<ActionGroups>
 		<ActionGroup id="base-game-main-yuni" scope="game" criteria="always">
@@ -93,6 +96,10 @@
 
 					<Item locale="zh_Hans_CN">l10n/zh_Hans_CN_Text.xml</Item>
 				</UpdateText>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="leader-fallback-yuni" scope="game" criteria="leader-fallback">
+			<Actions>
 				<UIScripts>
 					<Item>ui/leader-register.js</Item>
 				</UIScripts>
@@ -212,6 +219,10 @@
 
 					<Item locale="zh_Hans_CN">l10n/zh_Hans_CN_Text.xml</Item>
 				</UpdateText>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="leader-fallback-shell-yuni" scope="shell" criteria="leader-fallback">
+			<Actions>
 				<UIScripts>
 					<Item>ui/leader-register.js</Item>
 				</UIScripts>
