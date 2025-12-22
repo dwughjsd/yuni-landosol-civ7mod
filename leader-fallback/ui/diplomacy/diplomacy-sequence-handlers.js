@@ -144,6 +144,66 @@ function zoomImageOverlays(positions, scale = 1.1, duration = 1) {
 }
 
 /**
+ * 为图片领袖设置自动VO完成定时器
+ * 当右侧或两侧都是图片领袖时，由于没有3D模型动画，需要手动触发VO完成事件
+ * @param {object} context - LeaderModelManager 实例
+ * @param {boolean} isImg2 - 右侧是否为图片领袖
+ * @param {boolean} isFirstMeet - 是否为首次见面场景（使用5秒延迟，否则3秒）
+ */
+function setupImageLeaderVoAutoComplete(context, isImg2, isFirstMeet = false) {
+	if (!isImg2 || !context) {
+		return;
+	}
+
+	// 清理之前的定时器（如果存在）
+	if (context._imageLeaderVoTimeoutId) {
+		clearTimeout(context._imageLeaderVoTimeoutId);
+		context._imageLeaderVoTimeoutId = null;
+	}
+
+	// 首次见面使用5秒延迟，其它场景使用3秒
+	const delayMs = isFirstMeet ? 5000 : 3000;
+
+	// 设置VO队列标记，表示有VO需要完成
+	if (context.leaderSequenceGate) {
+		if (typeof context.leaderSequenceGate.setVOQueued === "function") {
+			context.leaderSequenceGate.setVOQueued();
+		} else {
+			context.leaderSequenceGate.voQueued = true;
+		}
+	}
+
+	// 设置定时器，在延迟后触发VO完成事件
+	context._imageLeaderVoTimeoutId = setTimeout(() => {
+		// 安全检查：确保外交场景仍然活跃
+		if (!context.isLeaderShowing) {
+			context._imageLeaderVoTimeoutId = null;
+			return;
+		}
+
+		try {
+			// 调用序列共享推进逻辑，内部会触发 diplomacy-animation-finished 事件
+			if (typeof context.doSequenceSharedAdvance === "function") {
+				context.doSequenceSharedAdvance();
+			} else {
+				// 兜底方案：直接触发事件
+				window.dispatchEvent(new CustomEvent("diplomacy-animation-finished", { detail: { isVO: true } }));
+			}
+		} catch (error) {
+			console.error("[Diplomacy Sequence] Error triggering VO completion for image leader:", error);
+			// 即使出错也尝试直接触发事件
+			try {
+				window.dispatchEvent(new CustomEvent("diplomacy-animation-finished", { detail: { isVO: true } }));
+			} catch (eventError) {
+				console.error("[Diplomacy Sequence] Failed to dispatch diplomacy-animation-finished event:", eventError);
+			}
+		} finally {
+			context._imageLeaderVoTimeoutId = null;
+		}
+	}, delayMs);
+}
+
+/**
  * 从外交关系推断领袖状态（用于切换文明场景，不依赖序列类型）
  * @param {number} playerID - 玩家ID
  * @param {string} position - 位置 ("left" 或 "right")
@@ -423,9 +483,9 @@ function overrideShowLeadersFirstMeet(instance, classRef) {
 		// 对图片领袖延迟显示覆盖层（跳过清理，避免清除已加载的3D模型）
 		// 使用与相机动画相同的延迟，确保与旗帜同步出现
 		// 相机动画在 FIRST_MEET_DELAY 秒后开始，旗帜也在此时开始动画
-		// 图片领袖应该在相机动画开始后 300ms 显示，与其他场景保持一致
+		// 图片领袖应该在相机动画开始后 433ms 显示，与其他场景保持一致
 		const firstMeetDelay = this.FIRST_MEET_DELAY || 0.3;
-		const imageLeaderDelay = (firstMeetDelay * 1000) + 433; // 相机动画延迟 + 300ms，与其他场景一致
+		const imageLeaderDelay = (firstMeetDelay * 1000) + 433;
 		if (isImg1) {
 			setTimeout(() => {
 				safeHandleImageLeaderDisplay(leaderID1, "left", this, null, true);
@@ -439,6 +499,11 @@ function overrideShowLeadersFirstMeet(instance, classRef) {
 
 		this.beginFirstMeetSequence();
 		this.isLeaderShowing = true;
+
+		// 如果右侧是图片领袖，设置自动VO完成定时器（首次见面使用5秒延迟）
+		if (isImg2) {
+			setupImageLeaderVoAutoComplete(this, isImg2, true);
+		}
 	};
 
 	instance.showLeadersFirstMeet._isOverridden = true;
@@ -692,7 +757,7 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 			const savedHasLeft3D = hasLeft3D;
 			const savedHasRight3D = hasRight3D;
 			
-			// 重写 startDWCameraAnimations 以在调用时同时缩放图片覆盖层
+			// 重写 startDWCameraAnimations 以在调用时同时缩放图片覆盖层，并在缩放开始时启动图片领袖VO定时器
 			const originalStartDWCameraAnimations = this.startDWCameraAnimations.bind(this);
 			this.startDWCameraAnimations = function() {
 				originalStartDWCameraAnimations();
@@ -706,6 +771,30 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 				}
 				if (positionsToZoom.length > 0) {
 					zoomImageOverlays(positionsToZoom, 1.1, 1.1);
+				}
+
+				// 右侧（或两侧）为图片领袖：从缩放开始计时3秒后触发VO完成
+				if (!savedHasRight3D) {
+					// 清理旧定时器
+					if (this._imageLeaderVoTimeoutId) {
+						clearTimeout(this._imageLeaderVoTimeoutId);
+						this._imageLeaderVoTimeoutId = null;
+					}
+					// 设置VO队列标记
+					if (this.leaderSequenceGate) {
+						if (typeof this.leaderSequenceGate.setVOQueued === "function") {
+							this.leaderSequenceGate.setVOQueued();
+						} else {
+							this.leaderSequenceGate.voQueued = true;
+						}
+					}
+					// 3秒后触发VO完成事件
+					this._imageLeaderVoTimeoutId = setTimeout(() => {
+						if (this.isLeaderShowing) {
+							this.doSequenceSharedAdvance();
+						}
+						this._imageLeaderVoTimeoutId = null;
+					}, 3000);
 				}
 			};
 			
@@ -729,7 +818,7 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 					this.advanceDeclareWarPlayerSequence = function(id, hash) {
 						// 如果是 case 1 且左侧是图片领袖（没有3D模型），直接进入 step 2
 						if (this.leaderSequenceStepID === 1 && !savedHasLeft3D && this.leaderSequenceGate.isWaiting() === false) {
-							// 如果右侧有3D模型，播放 VO_DwDefender；否则跳过（因为右侧也是图片领袖）
+							// 如果右侧有3D模型，播放 VO_DwDefender；否则跳过（因为右侧也是图片领袖，VO定时器在缩放时启动）
 							if (savedHasRight3D) {
 								this.playLeaderAnimation("VO_DwDefender", "right");
 								this.leaderSequenceGate.setVOQueued();
@@ -790,7 +879,6 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 					this.advanceDeclareWarPlayerSequence = function(id, hash) {
 						// 如果是 case 2 且右侧是图片领袖（没有3D模型），直接进入 step 3
 						if (this.leaderSequenceStepID === 2 && !savedHasRight3D && this.leaderSequenceGate.isWaiting() === false) {
-							this.doSequenceSharedAdvance();
 							// 如果左侧有3D模型，播放 IDLE_DwPlayer
 							if (savedHasLeft3D) {
 								this.playLeaderAnimation("IDLE_DwPlayer", "left");
@@ -798,7 +886,7 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 							// 如果左侧有3D模型，播放 TRANS_DwtoDwCenterPlayer；否则跳过（因为左侧也是图片领袖）
 							if (savedHasLeft3D) {
 								this.playLeaderAnimation("TRANS_DwtoDwCenterPlayer", "left");
-								this.startDWCameraAnimations(); // 重写的 startDWCameraAnimations 会自动处理图片覆盖层的缩放
+								this.startDWCameraAnimations(); // 重写的 startDWCameraAnimations 会自动处理图片覆盖层的缩放并启动VO定时器
 							}
 							// 如果两侧都是图片领袖，直接完成序列（不需要进入 step 3）
 							if (!savedHasLeft3D && !savedHasRight3D) {
@@ -812,7 +900,7 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 								setTimeout(() => {
 									// 直接触发图片覆盖层的缩放动画
 									zoomImageOverlays(["left", "right"], 1.1, 1.1);
-									// 触发拉近动画效果
+									// 触发拉近动画效果（内部会启动VO定时器）
 									this.startDWCameraAnimations();
 									this.leaderSequenceStepID = 0;
 								}, remainingTime);
@@ -1082,6 +1170,11 @@ function overrideShowLeadersAcceptPeace(instance, classRef) {
 
 		this.beginAcceptPeaceSequence();
 		this.isLeaderShowing = true;
+
+		// 如果右侧是图片领袖，设置自动VO完成定时器（接受和谈场景使用3秒延迟）
+		if (isImg2) {
+			setupImageLeaderVoAutoComplete(this, isImg2, false);
+		}
 	};
 
 	instance.showLeadersAcceptPeace._isOverridden = true;
@@ -1336,6 +1429,11 @@ function overrideShowLeadersRejectPeace(instance, classRef) {
 
 		this.beginRejectPeaceSequence();
 		this.isLeaderShowing = true;
+
+		// 如果右侧是图片领袖，设置自动VO完成定时器（拒绝和谈场景使用3秒延迟）
+		if (isImg2) {
+			setupImageLeaderVoAutoComplete(this, isImg2, false);
+		}
 	};
 
 	instance.showLeadersRejectPeace._isOverridden = true;
@@ -1570,6 +1668,11 @@ function overrideShowLeadersDefeat(instance, classRef) {
 
 		this.beginDefeatSequence();
 		this.isLeaderShowing = true;
+
+		// 如果右侧是图片领袖，设置自动VO完成定时器（战败场景使用3秒延迟）
+		if (isImg2) {
+			setupImageLeaderVoAutoComplete(this, isImg2, false);
+		}
 	};
 
 	instance.showLeadersDefeat._isOverridden = true;
@@ -1806,6 +1909,12 @@ function overrideShowLeaderModels(instance, classRef) {
 		this.playLeaderAnimation(animationToPlay, "right");
 		const animationToPlayLeft = "IDLE_ListeningPlayer";
 		this.playLeaderAnimation(animationToPlayLeft, "left");
+
+		// 如果右侧是图片领袖，设置自动VO完成定时器（普通对话场景使用3秒延迟）
+		// 注意：普通对话场景中，VO可能由右侧领袖播放，所以需要检测右侧是否为图片领袖
+		if (isImg2) {
+			setupImageLeaderVoAutoComplete(this, isImg2, false);
+		}
 	};
 
 	instance.showLeaderModels._isOverridden = true;

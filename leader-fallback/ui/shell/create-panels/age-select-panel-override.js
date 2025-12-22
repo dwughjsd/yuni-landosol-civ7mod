@@ -113,6 +113,28 @@ async function adjustOverlayForAgePanel() {
 	}
 }
 
+// 显示2D图片领袖的引言
+async function showImageLeaderQuote(panelInstance) {
+	const leaderID = await getCurrentLeaderID();
+	
+	if (!leaderID || !window.CustomLeaderConfig || !window.CustomLeaderConfig.isImageLeader(leaderID)) {
+		return;
+	}
+	
+	// 检查是否有引言数据
+	try {
+		const createGameModelModule = await import("/core/ui/shell/create-panels/create-game-model.js");
+		const CreateGameModel = createGameModelModule.CreateGameModel;
+		
+		if (CreateGameModel?.selectedLeader?.quote && panelInstance?.showQuoteSubtitles) {
+			// 显示引言
+			panelInstance.showQuoteSubtitles();
+		}
+	} catch (error) {
+		console.warn("Age Select Panel Override: Failed to show quote for image leader", error);
+	}
+}
+
 // 重写 onAttach 方法
 async function overrideOnAttach() {
 	await waitForDependencies();
@@ -140,10 +162,11 @@ async function overrideOnAttach() {
 	AgeSelectPanelClass.prototype.onAttach = function() {
 		const result = originalOnAttach.call(this);
 		
-		// 在面板附加后，更新底座位置和相机，并调整图片覆盖层
-		setTimeout(() => {
+		// 在面板附加后，更新底座位置和相机，并调整图片覆盖层，显示2D领袖的引言
+		setTimeout(async () => {
 			updatePedestalAndCamera();
 			adjustOverlayForAgePanel();
+			await showImageLeaderQuote(this);
 		}, 100);
 		
 		return result;
@@ -234,6 +257,50 @@ async function overrideOnDetach() {
 	return true;
 }
 
+// 重写 quoteSubtitlesHandler 方法，为2D图片领袖直接显示引言
+async function overrideQuoteSubtitlesHandler() {
+	await waitForDependencies();
+	
+	const definition = Controls?.getDefinition?.("age-select-panel");
+	if (!definition || !definition.createInstance) {
+		return false;
+	}
+	
+	const AgeSelectPanelClass = definition.createInstance;
+	
+	if (!AgeSelectPanelClass.prototype || !AgeSelectPanelClass.prototype.quoteSubtitlesHandler) {
+		return false;
+	}
+	
+	const originalQuoteSubtitlesHandler = AgeSelectPanelClass.prototype.quoteSubtitlesHandler;
+	
+	if (originalQuoteSubtitlesHandler._isOverriddenForImageLeader) {
+		return true;
+	}
+	
+	AgeSelectPanelClass.prototype.quoteSubtitlesHandler = function(state) {
+		// 对于2D图片领袖，异步检查并显示引言（不阻塞原有逻辑）
+		// 注意：由于无法同步获取CreateGameModel，我们使用异步方式
+		// 但不会阻塞3D模型领袖的原有逻辑执行
+		getCurrentLeaderID().then(leaderID => {
+			if (leaderID && window.CustomLeaderConfig && window.CustomLeaderConfig.isImageLeader(leaderID)) {
+				if (this.showQuoteSubtitles) {
+					this.showQuoteSubtitles();
+				}
+			}
+		}).catch(() => {
+			// 忽略错误，继续执行原有逻辑
+		});
+		
+		// 对于3D模型领袖，使用原有逻辑（不等待异步操作）
+		return originalQuoteSubtitlesHandler.call(this, state);
+	};
+	
+	originalQuoteSubtitlesHandler._isOverriddenForImageLeader = true;
+	
+	return true;
+}
+
 // 重写 updateLeaderBox 方法（当更新领袖盒子时也可能需要调整）
 async function overrideUpdateLeaderBox() {
 	await waitForDependencies();
@@ -267,9 +334,10 @@ async function overrideUpdateLeaderBox() {
 				
 				// 检查当前面板是否是时代选择面板
 				if (this instanceof AgeSelectPanelClass) {
-					// 更新领袖盒子后，调整图片覆盖层
-					setTimeout(() => {
+					// 更新领袖盒子后，调整图片覆盖层并显示2D领袖的引言
+					setTimeout(async () => {
 						adjustOverlayForAgePanel();
+						await showImageLeaderQuote(this);
 					}, 50);
 				}
 				
@@ -295,9 +363,10 @@ async function overrideUpdateLeaderBox() {
 	AgeSelectPanelClass.prototype.updateLeaderBox = function() {
 		const result = originalUpdateLeaderBox.call(this);
 		
-		// 更新领袖盒子后，调整图片覆盖层
-		setTimeout(() => {
+		// 更新领袖盒子后，调整图片覆盖层并显示2D领袖的引言
+		setTimeout(async () => {
 			adjustOverlayForAgePanel();
+			await showImageLeaderQuote(this);
 		}, 50);
 		
 		return result;
@@ -325,8 +394,9 @@ async function initializeAgePanelOverride() {
 					const success2 = await overrideSelectAge();
 					const success3 = await overrideUpdateLeaderBox();
 					const success4 = await overrideOnDetach();
+					const success5 = await overrideQuoteSubtitlesHandler();
 					
-					if (success1 || success2 || success3 || success4) {
+					if (success1 || success2 || success3 || success4 || success5) {
 						console.log("Age Select Panel Override: Initialization successful");
 					}
 				}, 200);
@@ -336,12 +406,13 @@ async function initializeAgePanelOverride() {
 	
 		setTimeout(() => {
 			clearInterval(checkControls);
-			if (typeof Controls !== "undefined" && Controls.getDefinition) {
-				overrideOnAttach();
-				overrideSelectAge();
-				overrideUpdateLeaderBox();
-				overrideOnDetach();
-			}
+		if (typeof Controls !== "undefined" && Controls.getDefinition) {
+			overrideOnAttach();
+			overrideSelectAge();
+			overrideUpdateLeaderBox();
+			overrideOnDetach();
+			overrideQuoteSubtitlesHandler();
+		}
 		}, 10000);
 }
 

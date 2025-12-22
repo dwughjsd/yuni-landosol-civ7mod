@@ -431,6 +431,12 @@ function overrideClear() {
 
 	window.LeaderModelManagerClass.prototype.clear = function() {
 		try {
+			// 清理图片领袖VO自动完成定时器（如果存在）
+			if (this._imageLeaderVoTimeoutId) {
+				clearTimeout(this._imageLeaderVoTimeoutId);
+				this._imageLeaderVoTimeoutId = null;
+			}
+
 			// 检查是否有外交图片覆盖层存在（表示正在显示图片领袖）
 			const hasDiplomacyOverlay = window.LeaderOverlayImage && 
 				(document.querySelector(".leader-overlay-image-block-diplomacy-left") ||
@@ -486,6 +492,12 @@ function overrideExitSimpleDiplomacyScene() {
 	const originalExitSimpleDiplomacyScene = window.LeaderModelManagerClass.prototype.exitSimpleDiplomacyScene;
 
 	window.LeaderModelManagerClass.prototype.exitSimpleDiplomacyScene = function() {
+		// 清理图片领袖VO自动完成定时器（如果存在）
+		if (this._imageLeaderVoTimeoutId) {
+			clearTimeout(this._imageLeaderVoTimeoutId);
+			this._imageLeaderVoTimeoutId = null;
+		}
+
 		// 在摄像机退出动画开始前，立即触发2D图片的退出动画，与旗帜同步
 		if (window.LeaderOverlayImage && typeof window.LeaderOverlayImage.tryRemoveDiplomacyImageOverlay === "function") {
 			try {
