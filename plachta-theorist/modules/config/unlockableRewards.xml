@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Database xmlns="UnlockableRewards">
-    <Rewards>
-        <!--TODO: Find a way to directly unlock it, and make icons for them-->
-        <Row GameItemID="MEMENTO_PLACHTA_THEORIST_MECHA_ARM" DNAItemID="2e3d993c1b8d6dacc002edc876263fac" CustomData="mem_min_gold_and_sapphire_flowers" Type="UNLOCKABLEREWARD_TYPE_MEMENTO" Name="LOC_MEMENTO_PLACHTA_THEORIST_MECHA_ARM_NAME" Description="LOC_MEMENTO_PLACHTA_THEORIST_MECHA_ARM_DESCRIPTION" SortIndex="300000"/>
-        <Row GameItemID="MEMENTO_PLACHTA_THEORIST_CLOUDBURST_HYDRITE" DNAItemID="b020ae88c859d46194cc58b3d4c52ded" CustomData="mem_min_topayauri" Type="UNLOCKABLEREWARD_TYPE_MEMENTO" Name="LOC_MEMENTO_PLACHTA_THEORIST_CLOUDBURST_HYDRITE_NAME" Description="LOC_MEMENTO_PLACHTA_THEORIST_CLOUDBURST_HYDRITE_DESCRIPTION" SortIndex="300000"/>
-        <Row GameItemID="MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM" DNAItemID="3d237c1c7e8b0d52ddb0b71a25951743" CustomData="mem_min_yasakani_no_magatama" Type="UNLOCKABLEREWARD_TYPE_MEMENTO" Name="LOC_MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM_NAME" Description="LOC_MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM_DESCRIPTION" SortIndex="300000"/>
-    </Rewards>
-</Database>

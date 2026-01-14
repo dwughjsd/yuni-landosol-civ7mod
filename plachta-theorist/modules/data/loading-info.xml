@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Database>
-	<LoadingInfo_Leaders>
-		<Row LeaderType="LEADER_PLACHTA_THEORIST" LeaderText="LOC_LOADING_LEADER_INTRO_TEXT_PLACHTA_THEORIST" LeaderImage="blp:lsl_catherine.png" />
-	</LoadingInfo_Leaders>
-</Database>

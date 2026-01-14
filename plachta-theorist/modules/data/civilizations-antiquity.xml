@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Database>
-	<LeaderCivPriorities>
-		<Row Leader="LEADER_PLACHTA_THEORIST" Civilization="CIVILIZATION_MAYA" Priority="2"/>
-		<Row Leader="LEADER_PLACHTA_THEORIST" Civilization="CIVILIZATION_MISSISSIPPIAN" Priority="2"/>
-	</LeaderCivPriorities>
-</Database>
